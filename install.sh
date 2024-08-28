@@ -30,8 +30,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 
-
-
 ##### Set up symlinks #####
 # Dotfiles
 ln -fvs ~/.dotfiles/shell/.zshrc ~/.zshrc
@@ -53,7 +51,7 @@ zoxide init
 
 
 # NvChad install and configuration
-git clone https://github.com/NvChad/starter ~/.config/nvim
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
 ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
