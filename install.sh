@@ -25,13 +25,11 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 curl -sS https://starship.rs/install.sh | sh
 
 
-# FZF install and configuration: Ctrl+t
+# FZF install
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 
-# NvChad install and configuration
-git clone https://github.com/NvChad/starter ~/.config/nvim
 
 
 ##### Set up symlinks #####
@@ -46,15 +44,16 @@ ln -fvs ~/.dotfiles/shell/starship.toml ~/.config/starship.toml
 ln -fvs ~/.dotfiles/shell/alacritty.toml ~/.config/alacritty.toml 
 
 
-# NvChad
-ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
-ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
-
-
 # Change default shell and switch
 chsh -s /usr/bin/zsh; zsh
 
 
-# Zoxide
+# Zoxide init
 zoxide init
 
+
+# NvChad install and configuration
+git clone https://github.com/NvChad/starter ~/.config/nvim
+
+ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
+ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
