@@ -18,11 +18,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 
 # Zoxide
-sh -c "$(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" | sh
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 
 # Starship install
-sh -c "$(curl -sS https://starship.rs/install.sh)" | sh
+curl -sS https://starship.rs/install.sh | sh
 
 
 # FZF install and configuration: Ctrl+t
