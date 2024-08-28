@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
+##### PREQEQUISITES #####
+# Zsh
+# Neovim
+# curl
+#
+
 # Determine OS
-installOS = $(uname -s)
-macos = "Darwin"
-linux = "Linux"
+# installOS = $(uname -s)
+# macos = "Darwin"
+# linux = "Linux"
+
 
 
 # NvChad install and configuration
@@ -20,11 +27,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 
 # Zoxide
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 
 # Starship install
-curl -sS https://starship.rs/install.sh
+curl -sS https://starship.rs/install.sh | sh
 
 
 ##### Set up symlinks #####
