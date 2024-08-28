@@ -34,8 +34,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git
 git clone https://github.com/NvChad/starter ~/.config/nvim
 
 
-
-
 ##### Set up symlinks #####
 # Dotfiles
 ln -fvs ~/.dotfiles/shell/.zshrc ~/.zshrc
@@ -51,6 +49,12 @@ ln -fvs ~/.dotfiles/shell/alacritty.toml ~/.config/alacritty.toml
 # NvChad
 ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
 ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
+
+
+# Change default shell
+chsh -s /usr/bin/zsh
+# switch to ZSH. Logout and in is required for defaults to update
+zsh
 
 
 # Zoxide
