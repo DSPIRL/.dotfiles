@@ -13,16 +13,6 @@
 # linux = "Linux"
 
 
-
-# NvChad install and configuration
-git clone https://github.com/NvChad/starter ~/.config/nvim
-
-
-# FZF install and configuration: Ctrl+t
-git clone --depth 1 https://github.com/junegunn/fzf.git
-~/.fzf~/.fzf/install
-
-
 # Oh My Zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -33,6 +23,17 @@ sh -c "$(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/in
 
 # Starship install
 sh -c "$(curl -sS https://starship.rs/install.sh)" | sh
+
+
+# FZF install and configuration: Ctrl+t
+git clone --depth 1 https://github.com/junegunn/fzf.git
+~/.fzf~/.fzf/install
+
+
+# NvChad install and configuration
+git clone https://github.com/NvChad/starter ~/.config/nvim
+
+
 
 
 ##### Set up symlinks #####
