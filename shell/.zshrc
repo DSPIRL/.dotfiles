@@ -7,6 +7,8 @@ source ~/.dotfiles/shell/.aliases.sh
 ##### EDITOR #####
 if [ $(uname -s) = "Darwin" ]; then
     export VISUAL="/opt/homebrew/bin/nvim"
+elif [ $(uname -s) = "Linux" ]; then
+    export VISUAL="/usr/bin/nvim"
 fi
 
 
@@ -33,6 +35,14 @@ export _ZO_ECHO=1
 
 ##### STARSHIP #####
 eval "$(starship init zsh)"
+
+
+
+
+
+
+
+
 
 
 ##### OH-MY-ZSH #####

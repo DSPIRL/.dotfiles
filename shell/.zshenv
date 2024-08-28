@@ -1,1 +1,2 @@
+##### RUST #####
 . "$HOME/.cargo/env"
