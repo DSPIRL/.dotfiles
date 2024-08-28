@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 ##### PREQEQUISITES #####
-# Zsh
-# Neovim
+# zsh
+# neovim
 # curl
+# git
 #
 
 # Determine OS
@@ -27,11 +28,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 
 # Zoxide
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+sh -c "$(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" | sh
 
 
 # Starship install
-curl -sS https://starship.rs/install.sh | sh
+sh -c "$(curl -sS https://starship.rs/install.sh)" | sh
 
 
 ##### Set up symlinks #####
