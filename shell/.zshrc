@@ -8,12 +8,16 @@ source ~/.dotfiles/shell/.aliases.sh
 if [ $(uname -s) = "Darwin" ]; then
     export VISUAL="/opt/homebrew/bin/nvim"
 fi
-# export PATH="$HOME/.config/emacs/bin:$PATH"
+
+
+##### PATH #####
+export PATH="$PATH:$HOME/.local/bin"
 
 
 ##### HOMEBREW #####
 # On linux the below line is required to work properly
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 
 ##### FZF #####
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
