@@ -16,8 +16,34 @@ else
     git config --global core.autocrlf true
 fi
 
-git config --global user.name "$varName"
-git config --global user.email "$varEmail"
-git config --global init.defaultBranch "$varBranchName"
-git config --global core.editor "$varEditorPath"
+
+
+
+
+if [[ $varName = "" ]]; then
+    echo "No name provided"
+else
+    git config --global user.name "$varName"
+fi
+
+
+if [[ $varName = "" ]]; then
+    echo "No name provided"
+else
+    git config --global user.email "$varEmail"
+fi
+
+
+if [[ $varName = "" ]]; then
+    echo "No name provided"
+else
+    git config --global init.defaultBranch "$varBranchName"
+fi
+
+
+if [[ $varName = "" ]]; then
+    echo "No name provided"
+else
+    git config --global core.editor "$varEditorPath"
+fi
 
