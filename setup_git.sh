@@ -5,15 +5,17 @@
 read -p "Enter your name: " varName
 read -p "Enter your email: " varEmail
 read -p "Enter default branch name: (main/master)" varBranchName
-read -p 'Are you using MacOS or Linux? (M/L): ' varOS
+read -p 'Are you using MacOS, Linux, or Windows? (M/L/W): ' varOS
 read -p "Enter path to default editor: " varEditorPath
 
 if [ "$varOS" = "M" ] || [ "$varOS" = "m" ]; then
     git config --global core.autocrlf input
 elif [ "$varOS" = "L" ] || [ "$varOS" = "l" ]; then
     git config --global core.autocrlf input
-else
+elif [ "$varOS" = "W" ] || [ "$varOS" = "w" ]
     git config --global core.autocrlf true
+else
+    echo "No OS provided"
 fi
 
 
