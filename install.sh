@@ -5,7 +5,7 @@
 # neovim
 # curl
 # git
-#
+# 
 
 # Determine OS
 # installOS = $(uname -s)
@@ -38,8 +38,8 @@ ln -fvs ~/.dotfiles/git_config/.gitconfig ~/.gitconfig
 ln -fvs ~/.dotfiles/shell/.tmux.conf ~/.tmux.conf
 ln -fvs ~/.dotfiles/shell/.vimrc ~/.vimrc
 ln -fvs ~/.dotfiles/shell/.ideavimrc ~/.ideavimrc
-ln -fvs ~/.dotfiles/shell/starship.toml ~/.config/starship.toml 
-ln -fvs ~/.dotfiles/shell/alacritty.toml ~/.config/alacritty.toml 
+ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml 
+ln -fvs ~/.dotfiles/config/alacritty/ ~/.config/
 
 
 # Change default shell and switch
