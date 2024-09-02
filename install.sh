@@ -8,10 +8,16 @@
 # 
 
 # Determine OS
-# installOS = $(uname -s)
-# macos = "Darwin"
-# linux = "Linux"
+hostOS=$(uname -s)
+macOS="Darwin"
+linux="Linux"
+processorType=$(uname -p)
 
+# Brew install
+if [[ $hostOS = $macOS ]] ||  ([[ $hostOS = $linux ]] && [[ processorType = "x86_64" ]]); then
+    # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+    
 
 # Oh My Zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
