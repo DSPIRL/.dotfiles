@@ -16,6 +16,9 @@ fi
 export PATH="$PATH:$HOME/.local/bin"
 
 
+##### JAVA #####
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.0.jdk/Contents/Home"
+
 ##### HOMEBREW #####
 # On linux the below line is required to work properly
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -7,11 +7,13 @@
 # git
 # 
 
+
 # Determine OS
 hostOS=$(uname -s)
 macOS="Darwin"
 linux="Linux"
 processorType=$(uname -p)
+
 
 # Brew install
 if [[ $hostOS = $macOS ]] ||  ([[ $hostOS = $linux ]] && [[ processorType = "x86_64" ]]); then
@@ -57,7 +59,10 @@ zoxide init
 
 
 # NvChad install and configuration
-git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+if [[ $hostOS = $macOS ]] || ([[ $hostOS = $linux ]] && [[ processorType != "arm" ]]); then
+    git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+fi
+
 
 ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
 ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua

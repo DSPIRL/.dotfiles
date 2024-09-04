@@ -1,7 +1,9 @@
 ##### SYSTEM #####
-alias sls="ls -lAFh --color=auto"
+alias sls="ls -lAFhn --color=auto"
 alias cd="z"
 alias cls="clear"
+alias modstat='stat -f "%Lp %N"'
+alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
 
 
 ##### EXIFTOOL #####
