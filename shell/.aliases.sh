@@ -2,8 +2,10 @@
 alias sls="ls -lAFhn --color=auto"
 alias cd="z"
 alias cls="clear"
-alias modstat='stat -f "%Lp %N"'
 alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
+if [ $(uname -s) = "Darwin" ]; then
+    alias modstat='stat -f "%Lp %N"'
+fi
 
 
 ##### EXIFTOOL #####
@@ -22,15 +24,17 @@ alias gittree="git log --pretty=format:'%p %h' --graph"
 
 
 ##### TMUX #####
-alias tmux-start="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::0 -n; tmux new-window -t GoodSesh:1 -n 'Neovim'; tmux attach-session -t GoodSesh;"
+alias tmux-start="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n; tmux new-window -t GoodSesh:2 -n 'Neovim'; tmux attach-session -t GoodSesh;"
 
 ##### EMACS #####
 alias emacs="emacsclient -c -a 'emacs'"
 
 
 ##### PYTHON #####
-alias python="python3"
-alias pypy="pypy3.10"
+if [ $(uname -s) = "Darwin" ]; then
+    alias python="python3"
+    alias pypy="pypy3.10"
+fi
 
 
 
