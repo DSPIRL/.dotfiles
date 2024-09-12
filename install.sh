@@ -48,6 +48,7 @@ ln -fvs ~/.dotfiles/shell/.vimrc ~/.vimrc
 ln -fvs ~/.dotfiles/shell/.ideavimrc ~/.ideavimrc
 ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml 
 ln -fvs ~/.dotfiles/config/alacritty/ ~/.config/
+ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
 
 
 # Change default shell and switch
@@ -58,10 +59,17 @@ chsh -s /usr/bin/zsh; zsh
 zoxide init
 
 
+# EZA install
+if [[ $hostOS = $macOS ]]; then
+    brew install eza
+fi
+
+
 # NvChad install and configuration
 if [[ $hostOS = $macOS ]] || ([[ $hostOS = $linux ]] && [[ processorType != "arm" ]]); then
     git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 fi
+
 
 
 ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 

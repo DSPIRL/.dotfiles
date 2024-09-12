@@ -40,7 +40,39 @@ export _ZO_ECHO=1
 eval "$(starship init zsh)"
 
 
+##### ZSH SETUP #####
 
+# MacOS
+if [ $(uname -s) = "Darwin" ]; then
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+    # History setup 
+    HISTFILE=$HOME/.zhistory
+    SAVEHIST=1000
+    HISTSIZE=999
+    setopt share_history
+    setopt hist_expire_dups_first
+    setopt hist_ignore_dups
+    setopt hist_verify
+elif [ $(uname -s) = "Linux" ]; then
+    # Linux
+    HISTFILE=$HOME/.zhistory
+    SAVEHIST=1000
+    HISTSIZE=999
+    setopt share_history
+    setopt hist_expire_dups_first
+    setopt hist_ignore_dups
+    setopt hist_verify
+fi
+
+
+##### EZA Autocompletions #####
+if type brew &>/dev/null; then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+    autoload -Uz compinit
+    compinit
+fi
 
 
 
