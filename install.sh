@@ -5,6 +5,7 @@
 # neovim
 # curl
 # git
+# eza
 # 
 
 

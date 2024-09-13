@@ -4,7 +4,7 @@
 ---@type ChadrcConfig
 local M = {}
 M.ui = {
-	theme = "gatekeeper",
+	theme = "doomchad",
     transparency = true,
 
 	-- hl_override = {
