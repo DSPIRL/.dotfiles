@@ -9,7 +9,6 @@
 	dimensions = { columns = 125, lines = 45 }
     option_as_alt = "Both"
 
-
 [font]
 	normal = { family = "JetBrainsMono Nerd Font", style = "ExtraLight" }
 	bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
@@ -19,12 +18,11 @@
 [mouse]
     hide_when_typing = true
 
-
-
 ##### COLOR SCHEME #####
 # Default colors
 [colors.primary]
-    background = '#011423'
+    # background = '#011423'
+    background = '#111111'
     foreground = '#CBE0F0'
 
 # Colors the cursor will use if `custom_cursor_colors` is true

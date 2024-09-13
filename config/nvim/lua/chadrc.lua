@@ -4,7 +4,7 @@
 ---@type ChadrcConfig
 local M = {}
 M.ui = {
-	theme = "bearded-arc",
+	theme = "gatekeeper",
     transparency = true,
 
 	-- hl_override = {
