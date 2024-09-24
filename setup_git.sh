@@ -48,5 +48,3 @@ if [[ $varEditorPath = "" ]]; then
 else
     git config --global core.editor "$varEditorPath"
 fi
-
-# ln -fvs ~/.dotfiles/git_config/.gitconfig ~/.gitconfig
