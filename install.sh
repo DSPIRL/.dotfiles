@@ -6,6 +6,8 @@
 # curl
 # git
 # eza
+# zsh-autosuggestions
+# zsh-syntax-highlighting
 # 
 
 
@@ -59,9 +61,9 @@ chsh -s /usr/bin/zsh; zsh
 zoxide init
 
 
-# EZA install
+# Brew installs
 if [[ $hostOS = $macOS ]]; then
-    brew install eza
+    brew install eza zsh-autosuggestions zsh-syntax-highlighting
 fi
 
 

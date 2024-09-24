@@ -42,8 +42,8 @@ eval "$(starship init zsh)"
 
 ##### ZSH SETUP #####
 
-# MacOS
 if [ $(uname -s) = "Darwin" ]; then
+    # MacOS
     source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -57,6 +57,10 @@ if [ $(uname -s) = "Darwin" ]; then
     setopt hist_verify
 elif [ $(uname -s) = "Linux" ]; then
     # Linux
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+    # History setup 
     HISTFILE=$HOME/.zhistory
     SAVEHIST=1000
     HISTSIZE=999
