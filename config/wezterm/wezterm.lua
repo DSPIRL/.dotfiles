@@ -18,14 +18,25 @@ local config = {}
 -- config.color_scheme = 'XCode Dusk (base16)'
 -- config.color_scheme = ''
 
-config.window_decorations = 'RESIZE'
-config.enable_tab_bar = false
 
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 40
+local operatingSystem = io.popen("uname -s")
+
+if operatingSystem == 'Darwin' then
+    config.window_decorations = 'RESIZE'
+    config.macos_window_background_blur = 40
+    config.window_background_opacity = 0.8
+    config.enable_tab_bar = false
+    config.font_size = 14
+else
+    config.window_decorations = 'TITLE | RESIZE'
+    config.window_background_opacity = 0.95
+    config.enable_tab_bar = false
+    config.font_size = 11
+end
+
+
 config.anti_alias_custom_block_glyphs = true
 config.font = wezterm.font 'JetBrains Mono'
-config.font_size = 14
 
 config.initial_cols = 150
 config.initial_rows = 50

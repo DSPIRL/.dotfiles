@@ -43,7 +43,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Dotfiles
 ln -fvs ~/.dotfiles/shell/.zshrc ~/.zshrc
 ln -fvs ~/.dotfiles/shell/.zshenv ~/.zshenv
-ln -fvs ~/.dotfiles/git_config/.gitconfig ~/.gitconfig
+# ln -fvs ~/.dotfiles/git_config/.gitconfig ~/.gitconfig
 ln -fvs ~/.dotfiles/shell/.tmux.conf ~/.tmux.conf
 ln -fvs ~/.dotfiles/shell/.vimrc ~/.vimrc
 ln -fvs ~/.dotfiles/shell/.ideavimrc ~/.ideavimrc
