@@ -63,7 +63,7 @@ zoxide init
 
 # Brew installs
 if [[ $hostOS = $macOS ]]; then
-    brew install eza zsh-autosuggestions zsh-syntax-highlighting
+    brew install eza zsh-autosuggestions zsh-syntax-highlighting neovim gh
 fi
 
 
