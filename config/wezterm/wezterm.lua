@@ -18,15 +18,24 @@ local config = {}
 -- config.color_scheme = 'XCode Dusk (base16)'
 -- config.color_scheme = ''
 
+local function trim(value)
+    return (string.gsub(value, "^%s*(.-)%s*$", "%1"))
+end
 
-local operatingSystem = io.popen("uname -s")
+local function getOperatingSystem()
+    local fileHandle = assert(io.popen("uname -s", 'r'))
+    local commandOutput = assert(fileHandle:read('*a'))
+    return commandOutput
+end
+
+local operatingSystem = trim(getOperatingSystem())
 
 if operatingSystem == 'Darwin' then
     config.window_decorations = 'RESIZE'
     config.macos_window_background_blur = 40
     config.window_background_opacity = 0.8
     config.enable_tab_bar = false
-    config.font_size = 14
+    config.font_size = 13
 else
     config.window_decorations = 'TITLE | RESIZE'
     config.window_background_opacity = 0.95
