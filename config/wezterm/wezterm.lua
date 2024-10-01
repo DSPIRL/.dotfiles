@@ -40,7 +40,7 @@ else
     config.window_decorations = 'TITLE | RESIZE'
     config.window_background_opacity = 0.95
     config.enable_tab_bar = false
-    config.font_size = 11
+    config.font_size = 10.5
 end
 
 
