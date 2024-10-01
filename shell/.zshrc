@@ -20,8 +20,10 @@ export PATH="$PATH:$HOME/.local/bin"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.0.jdk/Contents/Home"
 
 ##### HOMEBREW #####
-# On linux the below line is required to work properly
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ $(uname -s) = "Linux" ] && [ $(ls /home/ | grep "linuxbrew") ]; then
+    # On linux the below line is required to work properly
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 
 ##### FZF #####
