@@ -76,3 +76,4 @@ fi
 
 ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
 ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
+ln -fvs ~/.dotfiles/config/nvim/lua/plugins/init.lua ~/.config/nvim/lua/plugins/init.lua
