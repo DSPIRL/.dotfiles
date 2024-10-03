@@ -39,13 +39,13 @@ return {
         theme = "Dracula",
         background = "#94e2d5",
         to_clipboard = true,
-        no_window_controls = true,
+        no_window_controls = false,
         pad_horiz = 70,
         pad_vert = 70,
-        shadow_offset_x = 18,
-        shadow_offset_y = 18,
+        shadow_offset_x = 0,
+        shadow_offset_y = 0,
         shadow_color = nil,
-        shadow_blur_radius = 22,
+        shadow_blur_radius = 30,
         gobble = true,
         window_title = function()
           return vim.fn.fnamemodify(
