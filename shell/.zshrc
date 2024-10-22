@@ -43,6 +43,10 @@ eval "$(starship init zsh)"
 
 
 ##### ZSH SETUP #####
+# VI Mode Setup
+# set editing-mode vi
+# bindkey -v
+
 
 if [ $(uname -s) = "Darwin" ]; then
     # MacOS
@@ -163,6 +167,7 @@ plugins=(
 	git
 	zoxide
     dotnet
+    vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh

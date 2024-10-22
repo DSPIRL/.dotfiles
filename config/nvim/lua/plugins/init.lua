@@ -30,7 +30,7 @@ return {
     init = function()
       local wk = require("which-key")
       wk.add({
-        { "<leader>jj", ":Silicon<CR>", desc = "Snapshot Code", mode = "v" },
+        { "<leader>jj", ":Silicon<CR>", desc = "Snapshot Screenshot highlighted code.", mode = "v" },
       })
     end,
     config = function()
