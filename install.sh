@@ -68,7 +68,7 @@ chsh -s /usr/bin/zsh; zsh
 
 
 # Zoxide init
-zoxide init
+zoxide init zsh
 
 
 # Brew installs
