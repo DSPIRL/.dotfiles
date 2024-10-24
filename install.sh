@@ -28,7 +28,7 @@ fi
 # Nix symlink and package install
 ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
 
-nix search nixpkgs neovim
+bash -c "nix search nixpkgs neovim"
 
 bash -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
 
