@@ -30,7 +30,7 @@ ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
 
 nix search nixpkgs neovim
 
-bash -c "nix-env -i -f ~/.dotfiles/config/nix/packages.txt"
+bash -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
 
 
 # Brew install
