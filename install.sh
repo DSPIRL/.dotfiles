@@ -8,7 +8,7 @@
 # eza
 # zsh-autosuggestions
 # zsh-syntax-highlighting
-# 
+# silicon
 
 
 # Determine OS
@@ -16,6 +16,16 @@ hostOS=$(uname -s)
 macOS="Darwin"
 linux="Linux"
 processorType=$(uname -p)
+
+
+# Nix install
+if [[ $hostOS = $macOS ]]; then
+    sh <(curl -L https://nixos.org/nix/install)
+elif [[ $hostOS = $linux ]]; then
+    sh <(curl -L https://nixos.org/nix/install) --daemon
+fi
+
+nix-env -i -f ~/.dotfiles/config/nix/packages.txt
 
 
 # Brew install
@@ -51,6 +61,7 @@ ln -fvs ~/.dotfiles/shell/.ideavimrc ~/.ideavimrc
 ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml 
 ln -fvs ~/.dotfiles/config/alacritty/ ~/.config/
 ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
+ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
 
 
 # Change default shell and switch

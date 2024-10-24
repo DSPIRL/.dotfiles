@@ -1,0 +1,14 @@
+vim
+git
+curl
+neovim
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+fzf
+oh-my-zsh
+starship
+zoxide
+eza
+ripgrep
+silicon
