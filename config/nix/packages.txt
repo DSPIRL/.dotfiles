@@ -1,6 +1,4 @@
 vim
-git
-curl
 neovim
 zsh
 zsh-autosuggestions
