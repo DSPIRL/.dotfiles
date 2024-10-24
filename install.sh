@@ -15,7 +15,7 @@ linux="Linux"
 processorType=$(uname -p)
 
 
-# Nix install
+Nix install
 if [[ $hostOS = $macOS ]]; then
     sh <(curl -L https://nixos.org/nix/install)
 elif [[ $hostOS = $linux ]]; then

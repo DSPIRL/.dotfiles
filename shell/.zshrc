@@ -33,7 +33,8 @@ export FZF_CTRL_COMMAND="find . -printf '%P\\n'"
 
 
 ##### ZOXIDE #####
-# eval "(zoxide init zsh)"
+
+eval "$(zoxide init zsh)"
 export _ZO_DATA_DIR="$HOME/.config/zoxide"
 export _ZO_ECHO=1
 
