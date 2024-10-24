@@ -28,9 +28,9 @@ fi
 # Nix symlink and package install
 ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
 
-bash -c "nix search nixpkgs neovim"
+bash -l -c "nix search nixpkgs neovim"
 
-bash -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
+bash -l -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
 
 
 # Brew install
