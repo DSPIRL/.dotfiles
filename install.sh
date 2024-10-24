@@ -6,9 +6,6 @@
 # curl
 # git
 # eza
-# zsh-autosuggestions
-# zsh-syntax-highlighting
-# silicon
 
 
 # Determine OS
@@ -27,9 +24,7 @@ fi
 
 # Nix symlink and package install
 ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
-
 bash -l -c "nix search nixpkgs neovim"
-
 bash -l -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
 
 
@@ -38,7 +33,7 @@ if [[ $hostOS = $macOS ]] ||  ([[ $hostOS = $linux ]] && [[ processorType = "x86
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
     
-#
+
 # # Oh My Zsh install
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #
@@ -54,7 +49,7 @@ fi
 # # FZF install
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # ~/.fzf/install
-#
+
 
 ##### Set up symlinks #####
 # Dotfiles
@@ -86,7 +81,6 @@ fi
 if [[ $hostOS = $macOS ]] || ([[ $hostOS = $linux ]] && [[ processorType != "arm" ]]); then
     git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 fi
-
 
 
 ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
