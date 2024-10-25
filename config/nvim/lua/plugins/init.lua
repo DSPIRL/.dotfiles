@@ -30,15 +30,15 @@ return {
     init = function()
       local wk = require("which-key")
       wk.add({
-        { "<leader>jj", ":Silicon<CR>", desc = "Snapshot Screenshot highlighted code.", mode = "v" },
+        { "<leader>ss", ":Silicon<CR>", desc = "Snapshot Screenshot highlighted code.", mode = "v" },
       })
     end,
     config = function()
-      require("silicon").setup({
+      require("nvim-silicon").setup({
         font = "Jetbrains Mono Nerd Font=34;Noto Color Emoji=34",
         theme = "Dracula",
         background = "#94e2d5",
-        to_clipboard = true,
+        -- to_clipboard = true,
         no_window_controls = false,
         pad_horiz = 70,
         pad_vert = 70,
