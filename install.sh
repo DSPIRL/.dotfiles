@@ -6,6 +6,9 @@
 # curl
 # git
 # eza
+# zsh-autosuggestions
+# zsh-syntax-highlighting
+# silicon
 
 
 # Determine OS
@@ -15,17 +18,17 @@ linux="Linux"
 processorType=$(uname -p)
 
 
-Nix install
-if [[ $hostOS = $macOS ]]; then
-    sh <(curl -L https://nixos.org/nix/install)
-elif [[ $hostOS = $linux ]]; then
-    sh <(curl -L https://nixos.org/nix/install) --daemon
-fi
+# Nix install
+# if [[ $hostOS = $macOS ]]; then
+#     sh <(curl -L https://nixos.org/nix/install)
+# elif [[ $hostOS = $linux ]]; then
+#     sh <(curl -L https://nixos.org/nix/install) --daemon
+# fi
 
-# Nix symlink and package install
-ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
-bash -l -c "nix search nixpkgs neovim"
-bash -l -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
+# # Nix symlink and package install
+# ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
+# bash -l -c "nix search nixpkgs neovim"
+# bash -l -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
 
 
 # Brew install
@@ -34,21 +37,21 @@ if [[ $hostOS = $macOS ]] ||  ([[ $hostOS = $linux ]] && [[ processorType = "x86
 fi
     
 
-# # Oh My Zsh install
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#
-#
-# # Zoxide
-# curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-#
-#
-# # Starship install
-# curl -sS https://starship.rs/install.sh | sh
-#
-#
-# # FZF install
-# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-# ~/.fzf/install
+# Oh My Zsh install
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+# Zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+
+# Starship install
+curl -sS https://starship.rs/install.sh | sh
+
+
+# FZF install
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 
 ##### Set up symlinks #####
