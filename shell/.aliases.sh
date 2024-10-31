@@ -5,12 +5,12 @@ alias cls="clear"
 alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
 if [ $(uname -s) = "Darwin" ]; then
     alias modstat='stat -f "File name: %N
-File type: %T
-Execution modes: %i
+File type: %HT -> %SP
+Execution modes: %Sp
 Hex values: %Lp"'
 elif [ $(uname -s) = "Linux" ]; then
  alias modstat='stat -c "File name: %n
-File type: %F
+File type: %F -> %N
 Execution modes: %A
 Hex values: %a"'
 fi
