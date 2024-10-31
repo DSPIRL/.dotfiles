@@ -7,7 +7,6 @@ if [ $(uname -s) = "Darwin" ]; then
     alias modstat='stat -f "%Lp %N"'
 fi
 
-
 ##### EXIFTOOL #####
 alias exifall="exiftool -all="
 alias exifkeepicc="exiftool -all= --icc_profile:all"
@@ -18,17 +17,14 @@ alias nv="nvim"
 ##### OVERRIDES ######
 alias grep="grep --color=auto"
 
-
 ##### GIT #####
 alias gittree="git log --pretty=format:'%p %h' --graph"
-
 
 ##### TMUX #####
 alias tmux-start="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'Terminal'; tmux new-window -t GoodSesh:2 -n 'Neovim'; tmux attach-session -t GoodSesh;"
 
 ##### EMACS #####
 alias emacs="emacsclient -c -a 'emacs'"
-
 
 ##### PYTHON #####
 if [ $(uname -s) = "Darwin" ]; then
