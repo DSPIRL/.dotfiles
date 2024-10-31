@@ -6,12 +6,12 @@ alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
 if [ $(uname -s) = "Darwin" ]; then
     alias modstat='stat -f "File name: %N
 File type: %HT%SY
-Execution modes: %Sp
+Exec modes: %Sp
 Hex values: %Lp"'
 elif [ $(uname -s) = "Linux" ]; then
  alias modstat='stat -c "File name: %n
 File type: %F -> %N
-Execution modes: %A
+Exec modes: %A
 Hex values: %a"'
 fi
 
