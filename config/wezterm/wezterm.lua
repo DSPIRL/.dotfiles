@@ -37,6 +37,7 @@ if operatingSystem == 'Darwin' then
     config.enable_tab_bar = false
     config.font_size = 13
 else
+    config.enable_wayland = true
     config.window_decorations = 'TITLE | RESIZE'
     config.window_background_opacity = 0.95
     config.enable_tab_bar = false
