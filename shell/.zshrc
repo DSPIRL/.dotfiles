@@ -1,5 +1,3 @@
-##### USER CHANGES #####
-
 ##### SOURCES #####
 source ~/.dotfiles/shell/.aliases.sh
 
@@ -18,13 +16,6 @@ export PATH="$PATH:$HOME/.local/bin"
 
 ##### JAVA #####
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.0.jdk/Contents/Home"
-
-
-
-
-
-
-
 
 
 
