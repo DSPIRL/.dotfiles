@@ -10,7 +10,7 @@
     option_as_alt = "Both"
 
 [font]
-	normal = { family = "JetBrainsMono Nerd Font", style = "Normal" }
+	normal = { family = "JetBrainsMono Nerd Font", style = "Medium" }
 	bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 	italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 	size = 11.5
