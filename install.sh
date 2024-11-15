@@ -54,6 +54,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 
+
 ##### Set up symlinks #####
 # Dotfiles
 ln -fvs ~/.dotfiles/shell/.zshrc ~/.zshrc
@@ -65,6 +66,7 @@ ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml
 ln -fvs ~/.dotfiles/config/alacritty/ ~/.config/
 ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
 ln -fvs ~/.dotfiles/config/kanata/ ~/.config/kanata
+
 
 
 # Change default shell and switch
