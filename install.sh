@@ -64,6 +64,7 @@ ln -fvs ~/.dotfiles/shell/.ideavimrc ~/.ideavimrc
 ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml 
 ln -fvs ~/.dotfiles/config/alacritty/ ~/.config/
 ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
+ln -fvs ~/.dotfiles/config/kanata/ ~/.config/kanata
 
 
 # Change default shell and switch
