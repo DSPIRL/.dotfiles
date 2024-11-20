@@ -2,6 +2,9 @@
 (defcfg
     rapid-event-delay 20            ;; Delay for rapid event processing
     process-unmapped-keys yes        ;; Allow unmapped keys to pass through
+    linux-dev-names-include (
+        "AT Translated Set 2 keyboard"
+    )
     linux-dev-names-exclude (        ;; Exclude specific devices
         "TPPS/2 Elan TrackPoint"
     )
