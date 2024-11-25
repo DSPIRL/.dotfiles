@@ -10,6 +10,10 @@ elif [ $(uname -s) = "Linux" ]; then
 fi
 
 
+##### MANPAGER #####
+export MANPAGER='nvim +Man!'
+
+
 ##### PATH #####
 export PATH="$PATH:$HOME/.local/bin"
 
