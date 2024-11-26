@@ -1,11 +1,5 @@
 # Commands
-|   sls     |   mode, number of hard links, user UID,  user GID, file size, last modified date/time, name of file/directory |
-|           |   Mode displays in the following format: {user} {group} {other}                                               |
-
-
 |   modstat |   Displays mode decimal of stdin file     |
-
-
 
 
 # Scopes
