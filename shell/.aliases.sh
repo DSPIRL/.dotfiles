@@ -1,5 +1,6 @@
 ##### SYSTEM #####
 alias sls="eza -lhAF --color=auto --icons=always"
+alias ls="eza -lhAF --color=auto --icons=always"
 alias cd="z"
 alias cls="clear"
 alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
@@ -9,7 +10,7 @@ File type: %HT%SY
 Exec modes: %Sp
 Hex values: %Lp"'
 elif [ $(uname -s) = "Linux" ]; then
- alias modstat='stat -c "File name: %n
+    alias modstat='stat -c "File name: %n
 File type: %F -> %N
 Exec modes: %A
 Hex values: %a"'
