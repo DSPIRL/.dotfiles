@@ -10,7 +10,7 @@ elif [ $(uname -s) = "Linux" ]; then
 fi
 
 
-##### MANPAGER #####
+#### MANPAGER #####
 export MANPAGER='nvim +Man!'
 
 
@@ -164,11 +164,30 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	zoxide
-    dotnet
-)
+#
+if [ $(uname -s) = "Darwin" ]; then
+    plugins=(
+        git
+        zoxide
+        dotnet
+        rust
+        podman
+        pip
+        kubectl
+    )
+elif [ $(uname -s) = "Linux" ]; then
+    plugins=(
+        git
+        zoxide
+        dotnet
+        rust
+        podman
+        pip
+        kubectl
+        archlinux
+    )
+fi
+
 
 source $ZSH/oh-my-zsh.sh
 

@@ -68,6 +68,11 @@ ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
 ln -fvs ~/.dotfiles/config/kanata/ ~/.config/kanata
 
 
+if [[ $hostOS = $linux ]]; then
+    sudo ln -fvs ~/.dotfiles/shell/binaries/gitree /usr/bin/gitree
+fi
+
+
 
 # Change default shell and switch
 chsh -s /usr/bin/zsh; zsh
