@@ -1,9 +1,10 @@
 ##### SYSTEM #####
-alias sls="eza -lhAF --color=auto --icons=always"
+alias sls="eza -lhAF --color=auto --icons=always -RTL"
 alias ls="eza -lhAF --color=auto --icons=always"
 alias cd="z"
 alias cls="clear"
 alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
+
 if [ $(uname -s) = "Darwin" ]; then
     alias modstat='stat -f "File name: %N
 File type: %HT%SY

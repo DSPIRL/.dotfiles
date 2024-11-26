@@ -1,7 +1,4 @@
-##### SOURCES #####
-source ~/.dotfiles/shell/.aliases.sh
-
-
+##### SOURCES ON LINE 196 #####
 ##### EDITOR #####
 if [ $(uname -s) = "Darwin" ]; then
     export VISUAL="/opt/homebrew/bin/nvim"
@@ -190,6 +187,12 @@ fi
 
 
 source $ZSH/oh-my-zsh.sh
+
+
+##### SOURCES #####
+source ~/.dotfiles/shell/.aliases.sh
+
+
 
 # User configuration
 
