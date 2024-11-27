@@ -164,24 +164,28 @@ export ZSH="$HOME/.oh-my-zsh"
 #
 if [ $(uname -s) = "Darwin" ]; then
     plugins=(
-        git
-        zoxide
+        aliases
         dotnet
-        rust
-        podman
-        pip
+        fzf
+        git
         kubectl
+        pip
+        podman
+        rust
+        zoxide
     )
 elif [ $(uname -s) = "Linux" ]; then
     plugins=(
-        git
-        zoxide
-        dotnet
-        rust
-        podman
-        pip
-        kubectl
+        aliases
         archlinux
+        dotnet
+        fzf
+        git
+        kubectl
+        pip
+        podman
+        rust
+        zoxide
     )
 fi
 
