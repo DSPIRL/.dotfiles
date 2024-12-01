@@ -185,6 +185,7 @@ elif [ $(uname -s) = "Linux" ]; then
         pip
         podman
         rust
+        ssh
         zoxide
     )
 fi
