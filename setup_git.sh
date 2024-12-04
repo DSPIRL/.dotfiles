@@ -60,3 +60,4 @@ if [[ $varDiffAnswer = "" ]] || [[ $varDiffAnswer = "n" ]]; then
 else
     git config --global diff.tool "$varNvd"
     git config --global --add difftool.prompt false
+fi
