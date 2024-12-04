@@ -6,8 +6,11 @@ read -p "Enter your name: " varName
 read -p "Enter your email: " varEmail
 read -p "Enter default branch name (main/master): " varBranchName
 read -p 'Are you using MacOS, Linux, or Windows? (M/L/W): ' varOS
-read -p "Enter path to default editor: " varEditorPath
+read -p 'Enter path to default editor $(echo $VISUAL): ' varEditorPath
+read -p "Change difftool to nvimdiff? (y/n): " varDiffAnswer
+varNvd="nvimdiff"
 
+# Setup auto CRLF
 if [ "$varOS" = "M" ] || [ "$varOS" = "m" ]; then
     git config --global core.autocrlf input
 elif [ "$varOS" = "L" ] || [ "$varOS" = "l" ]; then
@@ -19,9 +22,7 @@ else
 fi
 
 
-
-
-
+# Setup username
 if [[ $varName = "" ]]; then
     echo "No name provided"
 else
@@ -29,6 +30,7 @@ else
 fi
 
 
+# Setup email
 if [[ $varEmail = "" ]]; then
     echo "No email provided"
 else
@@ -36,6 +38,7 @@ else
 fi
 
 
+# Setup default branch name
 if [[ $varBranchName = "" ]]; then
     echo "No branch name provided"
 else
@@ -43,8 +46,17 @@ else
 fi
 
 
+# Setup default editor
 if [[ $varEditorPath = "" ]]; then
     echo "No editor path provided"
 else
     git config --global core.editor "$varEditorPath"
 fi
+
+
+# Setup nvimdiff
+if [[ $varDiffAnswer = "" ]] || [[ $varDiffAnswer = "n" ]]; then
+    echo "Git diff tool using default."
+else
+    git config --global diff.tool "$varNvd"
+    git config --global --add difftool.prompt false
