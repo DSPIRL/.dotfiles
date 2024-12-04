@@ -10,6 +10,8 @@ if [ $(uname -s) = "Darwin" ]; then
 File type: %HT%SY
 Exec modes: %Sp
 Hex values: %Lp"'
+
+source ~/.dotfiles/shell/scripts/gittree.sh
 elif [ $(uname -s) = "Linux" ]; then
     alias modstat='stat -c "File name: %n
 File type: %F -> %N
