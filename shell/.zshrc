@@ -21,7 +21,6 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.0.jdk/Contents/Home"
 
 ##### NODE #####
 # NVM
-
 if [ $(uname -s) = "Darwin" ]; then
     export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
