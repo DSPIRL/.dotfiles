@@ -97,11 +97,6 @@ fi
 #
 export ZSH="$HOME/.oh-my-zsh"
 
-# fixing issue it prepending remnant character when tabbing.
-if [ $(uname -s) = "Linux" ]; then
-    export LC_ALL="en_US.UTF-8"
-fi
-
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
@@ -137,6 +132,10 @@ elif [ $(uname -s) = "Linux" ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+
+# fixing issue it prepending remnant character when tabbing.
+# export LC_ALL="en_US.UTF-8"
 
 
 ##### ALIASES #####
