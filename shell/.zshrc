@@ -12,7 +12,7 @@ export MANPAGER='nvim +Man!'
 
 
 ##### PATH #####
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/development/flutter/bin"
 
 
 ##### JAVA #####
