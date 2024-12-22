@@ -114,6 +114,7 @@ if [ $(uname -s) = "Darwin" ]; then
         podman
         rust
         zoxide
+        flutter
     )
 elif [ $(uname -s) = "Linux" ]; then
     plugins=(
