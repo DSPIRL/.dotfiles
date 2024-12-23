@@ -12,6 +12,11 @@ export MANPAGER='nvim +Man!'
 
 
 ##### PATH #####
+if [ $(uname -s) = "Darwin" ]; then
+    export PATH="$PATH:$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin"
+elif [ $(uname -s) = "Linux" ]; then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
 export PATH="$PATH:$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin"
 
 ##### JAVA #####
