@@ -11,7 +11,7 @@ File type: %HT%SY
 Exec modes: %Sp
 Hex values: %Lp"'
 
-source ~/.dotfiles/shell/scripts/gittree.sh
+    source ~/.dotfiles/shell/scripts/gittree.sh
 elif [ $(uname -s) = "Linux" ]; then
     alias modstat='stat -c "File name: %n
 File type: %F -> %N
@@ -45,10 +45,10 @@ if [ $(uname -s) = "Darwin" ]; then
     # alias pypy="pypy3.10"
 fi
 
-
-
-
-
+##### RUBY #####
+if [ $(uname -s) = "Darwin" ]; then
+    alias ruby="/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby"
+fi
 
 
 
