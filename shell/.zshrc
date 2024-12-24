@@ -1,4 +1,8 @@
-##### SOURCES ON LINE 211, under zsh plugins #####
+##### ALIASES ON LINE 211, under zsh plugins #####
+##### SOURCE #####
+# source ~/.dotfiles/shell/completion/flutter_completion.sh
+
+
 ##### EDITOR #####
 if [ $(uname -s) = "Darwin" ]; then
     export VISUAL="/opt/homebrew/bin/nvim"
@@ -11,16 +15,19 @@ fi
 export MANPAGER='nvim +Man!'
 
 
-##### PATH #####
+##### PATH + VARS #####
 if [ $(uname -s) = "Darwin" ]; then
     export PATH="$PATH:$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin"
+    # export GEM_HOME=$HOME/.gem
 elif [ $(uname -s) = "Linux" ]; then
     export PATH="$PATH:$HOME/.local/bin"
 fi
-export PATH="$PATH:$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin"
 
 ##### JAVA #####
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.0.jdk/Contents/Home"
+if [ $(uname -s) = "Darwin" ]; then
+    export JAVA_HOME="/usr/bin/java"
+elif [ $(uname -s) = "Linux" ]; then
+fi
 
 
 ##### NODE #####
