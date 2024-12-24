@@ -17,7 +17,7 @@ export MANPAGER='nvim +Man!'
 
 ##### PATH + VARS #####
 if [ $(uname -s) = "Darwin" ]; then
-    export PATH="$PATH:$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin"
+    export PATH="$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/opt/openjdk/bin:$PATH"
     # export GEM_HOME=$HOME/.gem
 elif [ $(uname -s) = "Linux" ]; then
     export PATH="$PATH:$HOME/.local/bin"
@@ -25,8 +25,9 @@ fi
 
 ##### JAVA #####
 if [ $(uname -s) = "Darwin" ]; then
-    export JAVA_HOME="/usr/bin/java"
+    export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
 elif [ $(uname -s) = "Linux" ]; then
+
 fi
 
 
