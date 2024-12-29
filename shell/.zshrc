@@ -15,17 +15,9 @@ fi
 export MANPAGER='nvim +Man!'
 
 
-##### PATH + VARS #####
-if [ $(uname -s) = "Darwin" ]; then
-    export PATH="$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/opt/openjdk/bin:$PATH"
-    # export GEM_HOME=$HOME/.gem
-elif [ $(uname -s) = "Linux" ]; then
-    export PATH="$PATH:$HOME/.local/bin"
-fi
-
 ##### JAVA #####
 if [ $(uname -s) = "Darwin" ]; then
-    export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
+    export JAVA_HOME="/Users/raphi/Library/Java/JavaVirtualMachines/azul-16.0.2/Contents/Home"
 elif [ $(uname -s) = "Linux" ]; then
 
 fi
@@ -146,6 +138,14 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+
+##### PATH + VARS #####
+if [ $(uname -s) = "Darwin" ]; then
+    export PATH="$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin:$JAVA_HOME/bin:$PATH"
+    # export GEM_HOME=$HOME/.gem
+elif [ $(uname -s) = "Linux" ]; then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
 
 # fixing issue it prepending remnant character when tabbing.
 # export LC_ALL="en_US.UTF-8"
