@@ -23,6 +23,15 @@ elif [ $(uname -s) = "Linux" ]; then
 fi
 
 
+##### PATH + VARS #####
+if [ $(uname -s) = "Darwin" ]; then
+    export PATH="$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin:$JAVA_HOME/bin:$PATH"
+    # export GEM_HOME=$HOME/.gem
+elif [ $(uname -s) = "Linux" ]; then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
+
+
 ##### NODE #####
 # NVM
 if [ $(uname -s) = "Darwin" ]; then
@@ -138,14 +147,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-
-##### PATH + VARS #####
-if [ $(uname -s) = "Darwin" ]; then
-    export PATH="$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin:$JAVA_HOME/bin:$PATH"
-    # export GEM_HOME=$HOME/.gem
-elif [ $(uname -s) = "Linux" ]; then
-    export PATH="$PATH:$HOME/.local/bin"
-fi
 
 # fixing issue it prepending remnant character when tabbing.
 # export LC_ALL="en_US.UTF-8"
