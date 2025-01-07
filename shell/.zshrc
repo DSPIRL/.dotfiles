@@ -155,3 +155,4 @@ source $ZSH/oh-my-zsh.sh
 ##### ALIASES #####
 source ~/.dotfiles/shell/.aliases.sh
 
+
