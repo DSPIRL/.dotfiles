@@ -8,3 +8,4 @@
 :set shiftwidth=4
 :set mouse=a
 :set wrap
+:set foldmethod=indent

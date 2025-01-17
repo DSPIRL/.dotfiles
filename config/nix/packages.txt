@@ -1,1 +1,0 @@
-nixpkgs.zsh-autosuggestions nixpkgs.zsh-syntax-highlighting nixpkgs.fzf nixpkgs.oh-my-zsh nixpkgs.starship nixpkgs.zoxide nixpkgs.eza nixpkgs.ripgrep nixpkgs.silicon
