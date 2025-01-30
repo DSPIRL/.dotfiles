@@ -24,7 +24,7 @@ return {
   },
 
   {
-    "michaelrommel/nvim-silicon",
+   "michaelrommel/nvim-silicon",
     lazy = true,
     cmd = "Silicon",
     init = function()
@@ -38,7 +38,7 @@ return {
         font = "Jetbrains Mono Nerd Font=34;Noto Color Emoji=34",
         theme = "Dracula",
         background = "#94e2d5",
-        -- to_clipboard = true,
+        to_clipboard = true,
         no_window_controls = false,
         pad_horiz = 70,
         pad_vert = 70,

@@ -25,10 +25,20 @@ fi
 
 ##### PATH + VARS #####
 if [ $(uname -s) = "Darwin" ]; then
-    export PATH="$HOME/.local/bin:$HOME/development/flutter/bin:/opt/homebrew/opt/ruby/bin:$JAVA_HOME/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/development/flutter/bin:$PATH"
+    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+    export PATH="$JAVA_HOME/bin:$PATH"
     # export GEM_HOME=$HOME/.gem
 elif [ $(uname -s) = "Linux" ]; then
-    export PATH="$PATH:$HOME/.local/bin"
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+
+##### C# PATH #####
+if [[ $(ls -lAFh | grep ".dotnet") ]]; then
+    export PATH="$PATH:$HOME/.dotnet/tools"
+    # export DOTNET_ROOT="/usr/bin/dotnet"
 fi
 
 
@@ -70,6 +80,7 @@ eval "$(starship init zsh)"
 if [ $(uname -s) = "Darwin" ]; then
     # MacOS
     source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-completions/zsh-completions.zsh
     source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
     # History setup 
@@ -139,6 +150,7 @@ elif [ $(uname -s) = "Linux" ]; then
         kubectl
         pip
         podman
+        docker
         rust
         ssh
         zoxide
