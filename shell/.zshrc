@@ -80,8 +80,8 @@ eval "$(starship init zsh)"
 if [ $(uname -s) = "Darwin" ]; then
     # MacOS
     source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /opt/homebrew/share/zsh-completions/zsh-completions.zsh
     source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # source /opt/homebrew/share/zsh-completions/zsh-completions.zsh
 
     # History setup 
     HISTFILE=$HOME/.zhistory
