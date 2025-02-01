@@ -37,8 +37,8 @@ fi
 
 ##### C# PATH #####
 if [[ $(ls -lAFh | grep ".dotnet") ]]; then
-    export PATH="$PATH:$HOME/.dotnet/tools"
-    # export DOTNET_ROOT="/usr/bin/dotnet"
+    export DOTNET_ROOT="/usr/bin/dotnet"
+    export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools"
 fi
 
 
