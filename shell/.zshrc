@@ -1,4 +1,3 @@
-##### ALIASES ON LINE 211, under zsh plugins #####
 ##### SOURCE #####
 # source ~/.dotfiles/shell/completion/flutter_completion.sh
 
@@ -37,7 +36,7 @@ fi
 
 ##### C# PATH #####
 if [[ $(ls -lAFh | grep ".dotnet") ]]; then
-    export DOTNET_ROOT="/usr/bin/dotnet"
+    export DOTNET_ROOT="/usr/share/dotnet"
     export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools"
 fi
 
