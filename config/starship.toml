@@ -86,16 +86,17 @@ $status\
 $os\
 $container\
 $shell\
-$character"""
+$character
+"""
 
-right_format = """$shlvl\
-$time"""
+# right_format = """$shlvl\
+# $time"""
 
 [time]
-disabled = false
+disabled = true
 
 [shlvl]
-disabled = false
+disabled = true
 ##### END USER CHANGES #####
 
 [aws]

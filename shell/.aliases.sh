@@ -5,15 +5,15 @@ alias cd="z"
 alias cls="clear"
 alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
 
-if [ $(uname -s) = "Darwin" ]; then
+if [ "$(uname -s)" = "Darwin" ]; then
     alias modstat='stat -f "File name: %N
 File type: %HT%SY
 Exec modes: %Sp
 Hex values: %Lp"'
     
+# source ~/.dotfiles/shell/scripts/gittree.sh
 
-    source ~/.dotfiles/shell/scripts/gittree.sh
-elif [ $(uname -s) = "Linux" ]; then
+elif [ "$(uname -s)" = "Linux" ]; then
     alias modstat='stat -c "File name: %n
 File type: %F -> %N
 Exec modes: %A
@@ -40,14 +40,14 @@ alias tmux-start="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::
 alias emacs="emacsclient -c -a 'emacs'"
 
 ##### PYTHON #####
-if [ $(uname -s) = "Darwin" ]; then
+if [ "$(uname -s)" = "Darwin" ]; then
     alias python="python3"
     alias pip="pip3"
     # alias pypy="pypy3.10"
 fi
 
 ##### RUBY #####
-if [ $(uname -s) = "Darwin" ]; then
+if [ "$(uname -s)" = "Darwin" ]; then
     alias ruby="/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby"
 fi
 

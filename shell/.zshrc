@@ -35,14 +35,14 @@ fi
 
 
 ##### C# PATH #####
-if [[ $(uname -s) == "Linux" ]]; then
+if [[ $(uname -s) == "Darwin" ]]; then
     if [[ $(ls -lAFh | grep ".dotnet") ]]; then
         export DOTNET_ROOT="/opt/homebrew/bin"
         export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools"
     fi
-elif [[ $(uname -s) == "Darwin" ]]; then
+elif [[ $(uname -s) == "Linux" ]]; then
     if [[ $(ls -lAFh | grep ".dotnet") ]]; then
-        export DOTNET_ROOT="/usr/local/share/dotnet:"
+        export DOTNET_ROOT="/usr/local/share/dotnet"
         export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools"
     fi
 fi

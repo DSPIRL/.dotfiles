@@ -32,7 +32,7 @@ processorType=$(uname -p)
 
 
 # Brew install
-if [[ $hostOS = $macOS ]]; then
+if [[ "$hostOS" = "$macOS" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
     
@@ -68,7 +68,7 @@ ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
 ln -fvs ~/.dotfiles/config/kanata/ ~/.config/kanata
 
 
-if [[ $hostOS = $linux ]]; then
+if [[ "$hostOS" = "$linux" ]]; then
     sudo ln -fvs ~/.dotfiles/shell/binaries/gitree /usr/bin/gitree
 fi
 
@@ -83,17 +83,18 @@ zoxide init zsh
 
 
 # Brew installs
-if [[ $hostOS = $macOS ]]; then
+if [[ "$hostOS" = "$macOS" ]]; then
     brew install eza zsh-autosuggestions zsh-syntax-highlighting neovim gh
 fi
 
 
 # NvChad install and configuration
-if [[ $hostOS = $macOS ]] || ([[ $hostOS = $linux ]] && [[ processorType != "arm" ]]); then
+if [[ "$hostOS" = "$macOS" ]] || ([[ "$hostOS" = "$linux" ]] && [[ "$processorType" != "arm" ]]); then
     git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 fi
 
 
+ln -fvs ~/.dotfiles/config/nushell/ ~/.config/
 ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
 ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
 ln -fvs ~/.dotfiles/config/nvim/lua/plugins/init.lua ~/.config/nvim/lua/plugins/init.lua
