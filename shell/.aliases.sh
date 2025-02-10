@@ -34,7 +34,7 @@ alias grep="grep --color=auto"
 # alias gittree="git log --pretty=format:'%p %h' --graph"
 
 ##### TMUX #####
-alias tmux-start="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'Terminal'; tmux new-window -t GoodSesh:2 -n 'Neovim'; tmux attach-session -t GoodSesh;"
+alias tms="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'Terminal'; tmux new-window -t GoodSesh:2 -n 'Neovim'; tmux attach-session -t GoodSesh;"
 
 ##### EMACS #####
 alias emacs="emacsclient -c -a 'emacs'"

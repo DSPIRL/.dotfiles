@@ -49,3 +49,8 @@
     magenta = "#a277ff"
     cyan = "#24EAF7"
     white = "#24EAF7"
+
+[keyboard]
+    bindings = [
+        { key = "F", mods = "Control|Alt|Shift", action = "ToggleFullscreen" },
+    ]
