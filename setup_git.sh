@@ -8,6 +8,7 @@ read -p "Enter default branch name (main/master): " varBranchName
 read -p 'Are you using MacOS, Linux, or Windows? (M/L/W): ' varOS
 read -p 'Enter path to default editor $(echo $VISUAL): ' varEditorPath
 read -p "Change difftool to nvimdiff? (y/n): " varDiffAnswer
+
 varNvd="nvimdiff"
 
 # Setup auto CRLF
