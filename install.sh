@@ -64,7 +64,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Dotfiles
 ln -fvs ~/.dotfiles/shell/.zshrc ~/.zshrc
 ln -fvs ~/.dotfiles/shell/.zshenv ~/.zshenv
-ln -fvs ~/.dotfiles/shell/.tmux.conf ~/.tmux.conf
+ln -fvs ~/.dotfiles/config/tmux/ ~/.config/tmux
 ln -fvs ~/.dotfiles/shell/.vimrc ~/.vimrc
 ln -fvs ~/.dotfiles/shell/.ideavimrc ~/.ideavimrc
 ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml 
