@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm'
 local config = {}
 
+-- COLOR SCHEME --
+-- color_scheme = 'Catpuccin Mocha'
 -- Blue/Purple themes
 -- config.color_scheme = 'Dark Violet (base16)'
 -- config.color_scheme = 'VisiBlue (terminal.sexy)'
@@ -32,14 +34,14 @@ local operatingSystem = trim(getOperatingSystem())
 
 if operatingSystem == 'Darwin' then
     config.window_decorations = 'RESIZE'
-    config.macos_window_background_blur = 40
+    config.macos_window_background_blur = 30
     config.window_background_opacity = 0.8
     config.enable_tab_bar = false
     config.font_size = 13
 else
     config.enable_wayland = true
     config.window_decorations = 'TITLE | RESIZE'
-    config.window_background_opacity = 0.95
+    config.window_background_opacity = 0.8
     config.enable_tab_bar = false
     config.font_size = 11
 end
@@ -51,6 +53,8 @@ config.font = wezterm.font 'JetBrains Mono'
 config.initial_cols = 150
 config.initial_rows = 50
 
+
+-- MY COLOR SCHEME ---
 config.colors = {
 	foreground = "#CBE0F0",
 	background = "#111115",
@@ -62,6 +66,10 @@ config.colors = {
 	ansi = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#0FC5ED", "#a277ff", "#24EAF7", "#24EAF7" },
 	brights = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
 }
+
+-- END MY COLOR SCHEME --
+
+
 
 
 
