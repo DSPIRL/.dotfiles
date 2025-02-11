@@ -2,17 +2,23 @@
 alias core-ls = ls
 alias core-cd = cd
 
-##### CUSTOM FUNCTIONS #####
+##### CUSTOM REDEFINITIONS #####
 def ls [] {
     core-ls -la | select name type mode user group size modified;
 }
 
-def tms [] {
-    tmux new-session -d -s GoodSesh
-    tmux new-window -t GoodSesh:1 -n 'Terminal'
-    tmux new-window -t GoodSesh:2 -n 'Neovim'
-    tmux attach-session -t GoodSesh
-}
+alias cd = z
+
+
+##### CUSTOM FUNCTIONS #####
+
+
+#ef tms [] {
+#   tmux new-session -d -s GoodSesh
+#   tmux new-window -t GoodSesh:1 -n 'Terminal'
+#   tmux new-window -t GoodSesh:2 -n 'Neovim'
+#   tmux attach-session -t GoodSesh
+#
 
 
 ##### TESTING #####

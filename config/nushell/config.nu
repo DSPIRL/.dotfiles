@@ -1,6 +1,6 @@
 source ~/.dotfiles/config/nushell/env_config.nu
 source ~/.dotfiles/config/nushell/linuxPaths.nu
-source ~/.dotfiles/config/nushell/alias.nu
+
 # source ~/.dotfiles/config/nushell/login.nu
 
 
@@ -11,6 +11,8 @@ source ~/.dotfiles/config/nushell/alias.nu
 # }
 
 
-source ~/.dotfiles/config/nushell/starship.nu
 source ~/.zoxide.nu
+source ~/.dotfiles/config/nushell/starship.nu
 source ~/.cache/carapace/init.nu
+
+source ~/.dotfiles/config/nushell/alias.nu
