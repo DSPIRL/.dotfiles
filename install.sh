@@ -19,26 +19,13 @@
 hostOS=$(uname -s)
 macOS="Darwin"
 linux="Linux"
-processorType=$(uname -p)
-
-# Nix install
-# if [[ $hostOS = $macOS ]]; then
-#     sh <(curl -L https://nixos.org/nix/install)
-# elif [[ $hostOS = $linux ]]; then
-#     sh <(curl -L https://nixos.org/nix/install) --daemon
-# fi
-
-# # Nix symlink and package install
-# ln -fvs ~/.dotfiles/config/nix/ ~/.config/nix
-# bash -l -c "nix search nixpkgs neovim"
-# bash -l -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
 
 # Brew install
 if [[ "$hostOS" = "$macOS" ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if [[ "$hostOS" = "$linux" ]]; then
+if [[ "$hostOS" = "$linux" ]] || [[ "$hostOS" = "$macOS" ]]; then
   # Oh My Zsh install
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -67,10 +54,6 @@ ln -fvs ~/.dotfiles/config/alacritty/ ~/.config/
 ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
 ln -fvs ~/.dotfiles/config/kanata/ ~/.config/kanata
 
-# if [[ "$hostOS" = "$linux" ]]; then
-#   sudo ln -fvs ~/.dotfiles/shell/binaries/gitree /usr/bin/gitree
-# fi
-
 # Change default shell and switch
 chsh -s /usr/bin/zsh
 
@@ -78,11 +61,6 @@ chsh -s /usr/bin/zsh
 if [[ "$hostOS" = "$macOS" ]]; then
   brew install eza zsh-autosuggestions zsh-syntax-highlighting neovim gh
 fi
-
-# NvChad install and configuration
-# if [[ "$hostOS" = "$macOS" ]] || ([[ "$hostOS" = "$linux" ]] && [[ "$processorType" != "arm" ]]); then
-#   git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
-# fi
 
 ln -fvs ~/.dotfiles/config/nushell/ ~/.config/
 ln -fvs ~/.dotfiles/config/nvim/lazyvim/lua/config/* ~/.config/nvim/lua/config/
