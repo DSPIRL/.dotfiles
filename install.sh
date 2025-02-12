@@ -15,13 +15,11 @@
 #   Alaso need to make cache dir from carapace documentation
 # zoxide init
 
-
 # Determine OS
 hostOS=$(uname -s)
 macOS="Darwin"
 linux="Linux"
 processorType=$(uname -p)
-
 
 # Nix install
 # if [[ $hostOS = $macOS ]]; then
@@ -35,30 +33,27 @@ processorType=$(uname -p)
 # bash -l -c "nix search nixpkgs neovim"
 # bash -l -c "nix-env -iA $(cat ~/.dotfiles/config/nix/packages.txt)"
 
-
 # Brew install
 if [[ "$hostOS" = "$macOS" ]]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-    
 
-# Oh My Zsh install
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [[ "$hostOS" = "$linux" ]]; then
+  # Oh My Zsh install
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+  # Zoxide
+  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+  # Zoxide init
+  zoxide init zsh
 
-# Zoxide
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-
+  # FZF install
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
 
 # Starship install
 curl -sS https://starship.rs/install.sh | sh
-
-
-# FZF install
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-
 
 ##### Set up symlinks #####
 # Dotfiles
@@ -67,42 +62,36 @@ ln -fvs ~/.dotfiles/shell/.zshenv ~/.zshenv
 ln -fvs ~/.dotfiles/config/tmux/ ~/.config/tmux
 ln -fvs ~/.dotfiles/shell/.vimrc ~/.vimrc
 ln -fvs ~/.dotfiles/shell/.ideavimrc ~/.ideavimrc
-ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml 
+ln -fvs ~/.dotfiles/config/starship.toml ~/.config/starship.toml
 ln -fvs ~/.dotfiles/config/alacritty/ ~/.config/
 ln -fvs ~/.dotfiles/config/wezterm/ ~/.config/wezterm
 ln -fvs ~/.dotfiles/config/kanata/ ~/.config/kanata
 
-
-if [[ "$hostOS" = "$linux" ]]; then
-    sudo ln -fvs ~/.dotfiles/shell/binaries/gitree /usr/bin/gitree
-fi
-
-
+# if [[ "$hostOS" = "$linux" ]]; then
+#   sudo ln -fvs ~/.dotfiles/shell/binaries/gitree /usr/bin/gitree
+# fi
 
 # Change default shell and switch
 chsh -s /usr/bin/zsh
 
-
-# Zoxide init
-zoxide init zsh
-
-
 # Brew installs
 if [[ "$hostOS" = "$macOS" ]]; then
-    brew install eza zsh-autosuggestions zsh-syntax-highlighting neovim gh
+  brew install eza zsh-autosuggestions zsh-syntax-highlighting neovim gh
 fi
-
 
 # NvChad install and configuration
-if [[ "$hostOS" = "$macOS" ]] || ([[ "$hostOS" = "$linux" ]] && [[ "$processorType" != "arm" ]]); then
-    git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
-fi
-
+# if [[ "$hostOS" = "$macOS" ]] || ([[ "$hostOS" = "$linux" ]] && [[ "$processorType" != "arm" ]]); then
+#   git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+# fi
 
 ln -fvs ~/.dotfiles/config/nushell/ ~/.config/
-ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua 
-ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
-ln -fvs ~/.dotfiles/config/nvim/lua/configs/conform.lua ~/.config/nvim/lua/configs/conform.lua
-ln -fvs ~/.dotfiles/config/nvim/lua/configs/nushell.lua ~/.config/nvim/lua/configs/nushell.lua
-ln -fvs ~/.dotfiles/config/nvim/lua/configs/lspconfig.lua ~/.config/nvim/lua/configs/lspconfig.lua
-ln -fvs ~/.dotfiles/config/nvim/lua/plugins/init.lua ~/.config/nvim/lua/plugins/init.lua
+ln -fvs ~/.dotfiles/config/nvim/lazyvim/lua/config/* ~/.config/nvim/lua/config/
+ln -fvs ~/.dotfiles/config/nvim/lazyvim/lua/plugins/* ~/.config/nvim/lua/plugins/
+ln -fvs ~/.dotfiles/config/nvim/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
+
+# ln -fvs ~/.dotfiles/config/nvim/lua/options.lua ~/.config/nvim/lua/options.lua
+# ln -fvs ~/.dotfiles/config/nvim/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
+# ln -fvs ~/.dotfiles/config/nvim/lua/configs/conform.lua ~/.config/nvim/lua/configs/conform.lua
+# ln -fvs ~/.dotfiles/config/nvim/lua/configs/nushell.lua ~/.config/nvim/lua/configs/nushell.lua
+# ln -fvs ~/.dotfiles/config/nvim/lua/configs/lspconfig.lua ~/.config/nvim/lua/configs/lspconfig.lua
+# ln -fvs ~/.dotfiles/config/nvim/lua/plugins/init.lua ~/.config/nvim/lua/plugins/init.lua
