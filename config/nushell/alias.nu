@@ -4,15 +4,13 @@ alias core-cd = cd
 
 ##### CUSTOM REDEFINITIONS #####
 def ls [] {
-    core-ls -la | select name type mode user group size modified;
+    core-ls -la | select name type mode user group size modified
 }
 
 alias cd = z
 
 
 ##### CUSTOM FUNCTIONS #####
-
-
 #ef tms [] {
 #   tmux new-session -d -s GoodSesh
 #   tmux new-window -t GoodSesh:1 -n 'Terminal'
@@ -22,6 +20,8 @@ alias cd = z
 
 
 ##### TESTING #####
+alias modstat = nu ~/.dotfiles/config/nushell/modstat.nu
+
 def greet [...names] { 
     $names | each {
         |el|
@@ -29,9 +29,6 @@ def greet [...names] {
     }
 }
 
-def modstat [...files] {
-    let test_table = ["Filename", "Filetype", "Exec Modes", "Hex Values"];
-}
 
 ##### ALIAS #####
 alias cls = clear
@@ -47,4 +44,3 @@ alias k = kubectl
 #alias tmux-start = tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'Terminal'; tmux new-window -t GoodSesh:2 -n 'Neovim'; tmux attach-session -t GoodSesh;
 
 alias glols = git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat
-
