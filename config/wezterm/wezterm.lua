@@ -1,4 +1,4 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = {}
 
 -- COLOR SCHEME --
@@ -21,38 +21,37 @@ local config = {}
 -- config.color_scheme = ''
 
 local function trim(value)
-    return (string.gsub(value, "^%s*(.-)%s*$", "%1"))
+	return (string.gsub(value, "^%s*(.-)%s*$", "%1"))
 end
 
 local function getOperatingSystem()
-    local fileHandle = assert(io.popen("uname -s", 'r'))
-    local commandOutput = assert(fileHandle:read('*a'))
-    return commandOutput
+	local fileHandle = assert(io.popen("uname -s", "r"))
+	local commandOutput = assert(fileHandle:read("*a"))
+	return commandOutput
 end
 
 local operatingSystem = trim(getOperatingSystem())
 
-if operatingSystem == 'Darwin' then
-    config.window_decorations = 'RESIZE'
-    config.macos_window_background_blur = 30
-    config.window_background_opacity = 0.8
-    config.enable_tab_bar = false
-    config.font_size = 13
+if operatingSystem == "Darwin" then
+	config.window_decorations = "RESIZE"
+	config.macos_window_background_blur = 30
+	config.window_background_opacity = 0.8
+	config.enable_tab_bar = false
+	config.font_size = 13
 else
-    config.enable_wayland = true
-    config.window_decorations = 'TITLE | RESIZE'
-    config.window_background_opacity = 0.8
-    config.enable_tab_bar = false
-    config.font_size = 11
+	config.enable_wayland = true
+	config.window_decorations = "TITLE | RESIZE"
+	config.window_background_opacity = 0.8
+	config.enable_tab_bar = false
+	config.font_size = 11
 end
 
-
+config.hide_mouse_cursor_when_typing = true
 config.anti_alias_custom_block_glyphs = true
-config.font = wezterm.font 'JetBrains Mono'
+config.font = wezterm.font("JetBrains Mono")
 
 config.initial_cols = 150
 config.initial_rows = 50
-
 
 -- MY COLOR SCHEME ---
 config.colors = {
@@ -69,20 +68,10 @@ config.colors = {
 
 -- END MY COLOR SCHEME --
 
-
-
-
-
-
 -- config.window_background_image = "Users/raphi/.config/wezterm/painted.jpg"
 -- config.window_background_image_hsb = {
 -- 	brightness = 0.01
 -- }
-
-
-
-
-
 
 ---- Window configuration
 -- config.window_frame = {
