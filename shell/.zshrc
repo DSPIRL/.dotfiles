@@ -68,7 +68,7 @@ fi
 
 ##### FZF #####
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPS="--extended"
+export FZF_DEFAULT_OPS="--extended --multi --preview 'cat {}'"
 export FZF_CTRL_COMMAND="find . -printf '%P\\n'"
 
 
