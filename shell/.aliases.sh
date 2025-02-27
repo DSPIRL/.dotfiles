@@ -1,5 +1,5 @@
 ##### SYSTEM #####
-alias sls="eza -lhAF --color=auto --icons=always -RTL"
+# alias sls="eza -lhAF --color=auto --icons=always -RTL"
 alias ls="eza -lhAF --color=auto --icons=always"
 alias cd="z"
 alias cls="clear"
@@ -10,7 +10,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 File type: %HT%SY
 Exec modes: %Sp
 Hex values: %Lp"'
-    
+
 # source ~/.dotfiles/shell/scripts/gittree.sh
 
 elif [ "$(uname -s)" = "Linux" ]; then
@@ -51,9 +51,6 @@ if [ "$(uname -s)" = "Darwin" ]; then
     alias ruby="/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby"
 fi
 
-
-
-
 ## remove old commits
 # git rebase -i HEAD~4
 
@@ -70,7 +67,6 @@ fi
 # git rm -rf --cached gitrepo/
 # THEN
 # git add gitrepo/
-
 
 ##### oh-my-posh ######
 # alias posh='oh-my-posh'
