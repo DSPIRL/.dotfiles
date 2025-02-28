@@ -48,7 +48,7 @@ fi
 
 ##### RUBY #####
 if [ "$(uname -s)" = "Darwin" ]; then
-    alias ruby="/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby"
+    alias ruby="/opt/homebrew/bin/ruby"
 fi
 
 ## remove old commits

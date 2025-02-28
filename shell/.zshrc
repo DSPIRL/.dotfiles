@@ -1,5 +1,7 @@
 ##### SOURCE #####
-# source ~/.dotfiles/shell/completion/flutter_completion.sh
+# if [ $(uname -s) = "Darwin" ]; then
+#     source ~/.dotfiles/shell/completion/flutter_completion.sh
+# fi
 
 
 ##### EDITOR #####
@@ -16,7 +18,7 @@ export MANPAGER='nvim +Man!'
 
 ##### JAVA #####
 if [ $(uname -s) = "Darwin" ]; then
-    export JAVA_HOME="/Users/raphi/Library/Java/JavaVirtualMachines/azul-16.0.2/Contents/Home"
+    export JAVA_HOME="/Users/raphi/Library/Java/JavaVirtualMachines/corretto-19.0.2/Contents/Home"
 elif [ $(uname -s) = "Linux" ]; then
 
 fi
@@ -28,7 +30,7 @@ if [ $(uname -s) = "Darwin" ]; then
     export PATH="$HOME/development/flutter/bin:$PATH"
     export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
     export PATH="$JAVA_HOME/bin:$PATH"
-    # export GEM_HOME=$HOME/.gem
+    export GEM_HOME=$HOME/.gem
 elif [ $(uname -s) = "Linux" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
