@@ -7,4 +7,4 @@ if [ $(uname -s) = "Darwin" ]; then
     export XDG_CONFIG_HOME="/Users/raphi/.config"
 fi
 
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8

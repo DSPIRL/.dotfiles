@@ -18,7 +18,7 @@ export MANPAGER='nvim +Man!'
 
 ##### JAVA #####
 if [ $(uname -s) = "Darwin" ]; then
-    export JAVA_HOME="/Users/raphi/Library/Java/JavaVirtualMachines/corretto-19.0.2/Contents/Home"
+    export JAVA_HOME="/Users/raphi/Library/Java/JavaVirtualMachines/openjdk-22.0.2/Contents/Home"
 elif [ $(uname -s) = "Linux" ]; then
 
 fi
@@ -28,7 +28,9 @@ fi
 if [ $(uname -s) = "Darwin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
     export PATH="$HOME/development/flutter/bin:$PATH"
+    export PATH="$HOME/fvm/default/bin:$PATH"
     export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+    export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
     export PATH="$JAVA_HOME/bin:$PATH"
     export GEM_HOME=$HOME/.gem
 elif [ $(uname -s) = "Linux" ]; then
@@ -80,10 +82,6 @@ export _ZO_DATA_DIR="$HOME/.config/zoxide"
 export _ZO_ECHO=1
 
 
-##### STARSHIP #####
-eval "$(starship init zsh)"
-
-
 ##### ZSH SETUP #####
 if [ $(uname -s) = "Darwin" ]; then
     # MacOS
@@ -133,34 +131,32 @@ export ZSH="$HOME/.oh-my-zsh"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
-if [ $(uname -s) = "Darwin" ]; then
+if [[ $(uname -s) = "Darwin" ]]; then
     plugins=(
         aliases
         dotnet
-        fzf
-        git
         kubectl
-        pip
         podman
         rust
         zoxide
-        flutter
     )
-elif [ $(uname -s) = "Linux" ]; then
+fi
+
+if [[ $(uname -s) = "Linux" ]]; then
     plugins=(
-        aliases
+        # aliases
         archlinux
         dotnet
-        fzf
-        git
+        # fzf
+        # git
         kubectl
         pip
         podman
         docker
         rust
-        ssh
+        # ssh
         zoxide
     )
 fi
@@ -175,4 +171,14 @@ source $ZSH/oh-my-zsh.sh
 ##### ALIASES #####
 source ~/.dotfiles/shell/.aliases.sh
 
+
+##### STARSHIP #####
+eval "$(starship init zsh)"
+
+
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/raphi/.config/.dart-cli-completion/zsh-config.zsh ]] && . /Users/raphi/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 
