@@ -21,6 +21,7 @@ alias cd = z
 
 ##### TESTING #####
 alias modstat = nu ~/.dotfiles/config/nushell/modstat.nu
+alias modhelp = cat ~/.dotfiles/shell/manpages/help_chmod
 
 def greet [...names] { 
     $names | each {
