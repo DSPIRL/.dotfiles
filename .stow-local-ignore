@@ -1,6 +1,8 @@
 .git
+.idea
+Backup
+stow
 config
 shell
-pacmanPackages
 pacmanPackages*
 *.sh
