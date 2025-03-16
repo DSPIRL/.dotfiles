@@ -1,0 +1,6 @@
+.git
+config
+shell
+pacmanPackages
+pacmanPackages*
+*.sh

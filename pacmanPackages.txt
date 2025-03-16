@@ -1,0 +1,1 @@
+alacritty btop curl eza flatpak fzf git gnome-calculator htop man-db nautilus neovim nushell silicon ttf-jetbrains-mono ttf-jetbrains-mono-nerd zoxide zsh zsh-autosuggestions zsh-syntax-highlighting

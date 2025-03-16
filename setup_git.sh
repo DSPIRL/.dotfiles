@@ -22,14 +22,12 @@ else
     echo "No OS provided"
 fi
 
-
 # Setup username
 if [[ $varName = "" ]]; then
     echo "No name provided"
 else
     git config --global user.name "$varName"
 fi
-
 
 # Setup email
 if [[ $varEmail = "" ]]; then
@@ -38,7 +36,6 @@ else
     git config --global user.email "$varEmail"
 fi
 
-
 # Setup default branch name
 if [[ $varBranchName = "" ]]; then
     echo "No branch name provided"
@@ -46,14 +43,12 @@ else
     git config --global init.defaultBranch "$varBranchName"
 fi
 
-
 # Setup default editor
 if [[ $varEditorPath = "" ]]; then
     echo "No editor path provided"
 else
     git config --global core.editor "$varEditorPath"
 fi
-
 
 # Setup nvimdiff
 if [[ $varDiffAnswer = "" ]] || [[ $varDiffAnswer = "n" ]]; then

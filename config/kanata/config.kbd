@@ -89,11 +89,11 @@
 
 ;;; Helper Layers
 (deflayer qwerty-helper
-    _    _    _    _    _    _    _    _    _    _    _    _    _    _
-    tab  _    _    _    _    _    _    _    _    _    _    _    _    _
-    _    _    _    _    _    _    _    bspc ret  _    _    _    _
-    _    _    _    _    _    _    _    _    _    _    _    _
-    _    _    _              _              _    _    _
+    grv  1     2     3     4     5    6    7     8     9     0     -    =    bspc
+    tab  q     w     S-6   S-grv t    S--  +     =     [     ]     [    ]    \
+    esc  S-1   S-2   S-3   S-4   S-5  -    S-[   S-]    S-9   S-0   `     ret
+    lsft z     x     S-,   S-.   b    S-8  S-7   S-\     \     /     rsft
+    lctl lmet  @qalt             @qspc           ralt  rmet  @dvk
 )
 
 (deflayer dvorak-helper
