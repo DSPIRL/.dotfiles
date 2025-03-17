@@ -14,7 +14,7 @@ Hex values: %Lp"'
 
 # source ~/.dotfiles/shell/scripts/gittree.sh
 
-elif [ "$(uname -s)" = "Linux" ]; then
+elif [[ "$(uname -s)" == "Linux" ]]; then
     alias modstat='stat -c "File name: %n
 File type: %F -> %N
 Exec modes: %A
@@ -41,14 +41,14 @@ alias tms="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'T
 alias emacs="emacsclient -c -a 'emacs'"
 
 ##### PYTHON #####
-if [ "$(uname -s)" = "Darwin" ]; then
+if [[ "$(uname -s)" = "Darwin" ]]; then
     alias python="python3"
     alias pip="pip3"
     # alias pypy="pypy3.10"
 fi
 
 ##### RUBY #####
-if [ "$(uname -s)" = "Darwin" ]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
     alias ruby="/opt/homebrew/bin/ruby"
 fi
 
