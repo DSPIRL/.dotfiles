@@ -2,12 +2,12 @@
 
 # set -x
 #^ Debug
-read -p "Enter your name: " varName
-read -p "Enter your email: " varEmail
-read -p "Enter default branch name (main/master): " varBranchName
-read -p 'Are you using MacOS, Linux, or Windows? (M/L/W): ' varOS
-read -p 'Enter path to default editor $(echo $VISUAL): ' varEditorPath
-read -p "Change difftool to nvimdiff? (y/n): " varDiffAnswer
+read -rp "Enter your name: " varName
+read -rp "Enter your email: " varEmail
+read -rp "Enter default branch name (main/master): " varBranchName
+read -rp 'Are you using MacOS, Linux, or Windows? (M/L/W): ' varOS
+read -rp 'Enter path to default editor $(echo $VISUAL): ' varEditorPath
+read -rp "Change difftool to nvimdiff? (y/n): " varDiffAnswer
 
 varNvd="nvimdiff"
 

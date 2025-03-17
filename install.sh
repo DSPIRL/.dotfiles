@@ -23,6 +23,12 @@ elif [[ "$operatingSystem" == "Darwin" ]]; then
     brewPackages=$(awk -v RS= '{$1=$1}1' brewPackages.txt)
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install $brewPackages
+else
+    read -rp 'Are you on a Debian based disto? (Y/N): ' varDebian
+    if [[ "$varDebian" == "Y" || "$varDebian" == "y" ]]; then
+        debianPackages=$(awk -v RS= '{$1=$1}1' debianPackages.txt)
+        sudo apt install $debianPackages
+    fi
 fi
 
 chsh -s /usr/bin/zsh
