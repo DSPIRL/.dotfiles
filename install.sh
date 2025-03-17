@@ -4,21 +4,31 @@ operatingSystem=$(grep -i "PRETTY_NAME" </etc/os-release | awk -F'"' '{print $2}
 chassis=$(hostnamectl chassis)
 
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
-    pacmanPackages=$(awk -v RS= '{$1=$1}1' pacmanPackages.txt)
-    sudo pacman -S $pacmanPackages
+    archPackages=$(awk -v RS= '{$1=$1}1' archPackages.txt)
+    sudo pacman -S $archPackages
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     cargo install kanata
 
     # Install YAY
     if [[ "$chassis" == "laptop" ]]; then
-        sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-        cargo install kanata
+        read -rp 'Would you like to install kanata? (Y/N): ' varInstallKanata
+        if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
+            sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+            cargo install kanata
+        fi
     else
         read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
         if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
             sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
         fi
     fi
+
+    read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
+    if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
+        archVMPackages=$(awk -v RS= '{$1=$1}1' archVMPackages.txt)
+        sudo pacman -S $archVMPackages
+    fi
+
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     brewPackages=$(awk -v RS= '{$1=$1}1' brewPackages.txt)
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
