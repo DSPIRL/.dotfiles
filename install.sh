@@ -4,8 +4,8 @@ operatingSystem=$(grep -i "PRETTY_NAME" </etc/os-release | awk -F'"' '{print $2}
 chassis=$(hostnamectl chassis)
 
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
-    archPackages=$(awk -v RS= '{$1=$1}1' archPackages.txt)
-    sudo pacman -S $archPackages
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sudo pacman -S $(awk -v RS= '{$1=$1}1' archPackages.txt)
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     cargo install kanata
 
@@ -25,19 +25,16 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
-        archVMPackages=$(awk -v RS= '{$1=$1}1' archVMPackages.txt)
-        sudo pacman -S $archVMPackages
+        sudo pacman -S $(awk -v RS= '{$1=$1}1' archVMPackages.txt)
     fi
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
-    brewPackages=$(awk -v RS= '{$1=$1}1' brewPackages.txt)
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install $brewPackages
+    brew install $(awk -v RS= '{$1=$1}1' brewPackages.txt)
 else
     read -rp 'Are you on a Debian based disto? (Y/N): ' varDebian
     if [[ "$varDebian" == "Y" || "$varDebian" == "y" ]]; then
-        debianPackages=$(awk -v RS= '{$1=$1}1' debianPackages.txt)
-        sudo apt install $debianPackages
+        sudo apt install $(awk -v RS= '{$1=$1}1' debianPackages.txt)
     fi
 fi
 
