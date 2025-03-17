@@ -2,9 +2,6 @@
 \.gitignore$
 \.idea$
 \.stow-local-ignore$
-^Backup$
-^stow$
-^config$
 ^shell$
 \.txt$
 \.sh$
