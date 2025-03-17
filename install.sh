@@ -4,10 +4,9 @@ operatingSystem=$(grep -i "PRETTY_NAME" </etc/os-release | awk -F'"' '{print $2}
 chassis=$(hostnamectl chassis)
 
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     sudo pacman -S $(awk -v RS= '{$1=$1}1' archPackages.txt)
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    cargo install kanata
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     # Install YAY
     if [[ "$chassis" == "laptop" ]]; then
