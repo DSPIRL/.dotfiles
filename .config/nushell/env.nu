@@ -1,5 +1,5 @@
 ##### ZOXIDE #####
-zoxide init nushell | save -f ~/.zoxide.nu
+# zoxide init nushell | save -f ~/.zoxide.nu
 
 ##### CARAPACE #####
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional

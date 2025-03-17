@@ -3,7 +3,7 @@
 alias ls="eza -lhAF --color=auto --icons=always"
 alias cd="z"
 alias cls="clear"
-alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod"
+alias modhelp="cat ~/.dotfiles/shell/manpages/help_chmod.md"
 alias glols='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
 
 if [ "$(uname -s)" = "Darwin" ]; then
