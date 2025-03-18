@@ -1,0 +1,14 @@
+~/.config/alacritty
+~/.config/ghostty
+~/.config/hypr
+~/.config/kanata
+~/.config/nushell
+~/.config/nvim
+~/.config/starship.toml
+~/.config/tmux
+~/.config/wezterm
+~/.ideavimrc
+~/.profile
+~/.vimrc
+~/.zshenv
+~/.zshrc
