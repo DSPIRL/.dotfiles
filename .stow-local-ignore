@@ -3,6 +3,6 @@
 \.idea$
 \.stow-local-ignore$
 ^shell$
-^[^/].*\.txt$
-^[^/].*\.sh$
-^[^/].*\.md$
+/.*\.txt$
+/.*\.sh$
+/.*\.md$
