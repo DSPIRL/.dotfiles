@@ -4,7 +4,7 @@ operatingSystem=$(grep -i "PRETTY_NAME" </etc/os-release | awk -F'"' '{print $2}
 chassis=$(hostnamectl chassis)
 
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
-    sudo pacman -S $(awk -v RS= '{$1=$1}1' archPackages.txt)
+    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt)
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
     # Install YAY
@@ -30,7 +30,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
-        sudo pacman -S $(awk -v RS= '{$1=$1}1' archDevPackages.txt)
+        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
     fi
 
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
@@ -47,13 +47,14 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
-        sudo pacman -S $(awk -v RS= '{$1=$1}1' archVMPackages.txt)
+        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt)
         echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
     fi
 
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting already on your machine. (Y/N): ' varRunStow
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
-        rm -rf $(awk -v RS= '{$1=$1}1' .removeFiles.txt)
+        rm -rf $(awk -v RS= '{$1=$1}1' ~/.dotfiles/.removeFiles.txt)
+        stow .
     fi
     ##### END USER CHOICES #####
 
@@ -62,11 +63,11 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install $(awk -v RS= '{$1=$1}1' brewPackages.txt)
+    brew install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/brewPackages.txt)
 else
     read -rp 'Are you on a Debian based disto? (Y/N): ' varDebian
     if [[ "$varDebian" == "Y" || "$varDebian" == "y" ]]; then
-        sudo apt install $(awk -v RS= '{$1=$1}1' debianPackages.txt)
+        sudo apt install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/debianPackages.txt)
     fi
 fi
 
