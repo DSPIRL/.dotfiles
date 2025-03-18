@@ -53,7 +53,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting already on your machine. (Y/N): ' varRunStow
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
-        rm -rf $(awk -v RS= '{$1=$1}1' ~/.dotfiles/.removeFiles.txt)
+        rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc
         stow .
     fi
     ##### END USER CHOICES #####
