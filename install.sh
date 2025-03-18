@@ -6,7 +6,6 @@ chassis=$(hostnamectl chassis)
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
     sudo pacman -S $(awk -v RS= '{$1=$1}1' archPackages.txt)
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     # Install YAY
     if [[ "$chassis" == "laptop" ]]; then
@@ -57,6 +56,9 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         rm -rf $(awk -v RS= '{$1=$1}1' .removeFiles.txt)
     fi
     ##### END USER CHOICES #####
+
+    # ohmyzsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
