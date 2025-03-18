@@ -1,4 +1,6 @@
 alacritty
+aspell
+aspell-en
 btop
 curl
 eza
@@ -6,6 +8,7 @@ flatpak
 fzf
 git
 gnome-calculator
+gnome-dictionary
 htop
 man-db
 nautilus
@@ -14,8 +17,10 @@ nushell
 silicon
 starship
 stow
+tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
+wl-clipboard
 zoxide
 zsh
 zsh-autosuggestions

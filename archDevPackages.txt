@@ -1,0 +1,10 @@
+dotnet-runtime
+dotnet-sdk
+github-cli
+kubectl
+lazygit
+nodejs
+npm
+podman
+pypy
+uv
