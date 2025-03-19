@@ -12,9 +12,6 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
 
-    # ohmyzsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
     # Install YAY
     if [[ "$chassis" == "laptop" ]]; then
         read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
@@ -31,6 +28,13 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     fi
 
     ##### USER CHOICES #####
+    read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
+    if [[ "$varInstallSyncthing" == "Y" || "$varInstallSyncthing" == "y" ]]; then
+        sudo pacman -S syncthing
+        systemctl --user enable syncthing.service
+        systemctl --user start syncthing.service
+    fi
+
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
     if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
         sudo pacman -S tmux
@@ -39,13 +43,6 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     if [[ "$varInstallWireguard" == "Y" || "$varInstallWireguard" == "y" ]]; then
         sudo pacman -S wireguard-tools
-    fi
-
-    read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
-    if [[ "$varInstallSyncthing" == "Y" || "$varInstallSyncthing" == "y" ]]; then
-        sudo pacman -S syncthing
-        systemctl --user enable syncthing.service
-        systemctl --user start syncthing.service
     fi
 
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
@@ -61,6 +58,10 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     fi
     ##### END USER CHOICES #####
 
+    # ohmyzsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/brewPackages.txt)
@@ -68,7 +69,6 @@ else
     read -rp 'Are you on a Debian based disto? (Y/N): ' varDebian
     if [[ "$varDebian" == "Y" || "$varDebian" == "y" ]]; then
         sudo apt install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/debianPackages.txt)
+        chsh -s /usr/bin/zsh
     fi
 fi
-
-chsh -s /usr/bin/zsh
