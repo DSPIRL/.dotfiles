@@ -14,44 +14,36 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
     # Install YAY
     if [[ "$chassis" == "laptop" ]]; then
-        read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
-        if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
-            sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-            cargo install kanata
-        fi
     else
-        read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
-        if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
-            sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-            yay -S carapace-bin
-        fi
     fi
 
     ##### USER CHOICES #####
+    read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
+    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
+    read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
     read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
+    read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
+    read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
+    read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
+    read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     if [[ "$varInstallSyncthing" == "Y" || "$varInstallSyncthing" == "y" ]]; then
         sudo pacman -S syncthing
         systemctl --user enable syncthing.service
         systemctl --user start syncthing.service
     fi
 
-    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
     if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
         sudo pacman -S tmux
     fi
 
-    read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     if [[ "$varInstallWireguard" == "Y" || "$varInstallWireguard" == "y" ]]; then
         sudo pacman -S wireguard-tools
     fi
 
-    read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
         sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt)
-        echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
     fi
 
-    read -rp 'Run stow automatically? WARNING: This will overwrite conflicting already on your machine. (Y/N): ' varRunStow
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
         rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc
         stow .
@@ -60,17 +52,30 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
-    ##### END USER CHOICES #####
 
     # ohmyzsh
-    read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         rm ~/.zshrc
     fi
+
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
         stow .
     fi
+
+    if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
+        sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+        yay -S carapace-bin
+    fi
+
+    if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
+        cargo install kanata
+    fi
+
+    if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
+        echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
+    fi
+    ##### END USER CHOICES #####
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
