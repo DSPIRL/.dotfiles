@@ -72,6 +72,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     ##### END USER CHOICES #####
 
     ./usr/bin/zoxide init nushell >~/.zoxide.nu
+    chsh -s /usr/bin/nu
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
