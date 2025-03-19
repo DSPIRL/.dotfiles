@@ -12,6 +12,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
         read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
     fi
+
     read -rp 'Do you want to install Brave Browser? (Y/N): ' varInstallBraveBrowser
     read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
     read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
@@ -23,28 +24,35 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
 
-    if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
-        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
+    # TODO: add an install for all of the questions. It needs to be a one liner to install all pacman packages in one go to prevent requiring a bunch of confirmations
+    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt) $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} ]] && echo tmux) $([[ ${varInstallWireguard^^} ]] && echo wireguard-tools) $([[ ${varArchVM^^} ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt) $([[ ${varInstallDeluge^^} ]] && echo "deluge deluge-gtk")
+    # TODO: add install for varInstallCarapace
+
+    if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
 
+    # if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
+    #     sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
+    # fi
+
     if [[ "$varInstallSyncthing" == "Y" || "$varInstallSyncthing" == "y" ]]; then
-        sudo pacman -S syncthing
+        # sudo pacman -S syncthing
         systemctl --user enable syncthing.service
         systemctl --user start syncthing.service
     fi
 
-    if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
-        sudo pacman -S tmux
-    fi
+    # if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
+    #     sudo pacman -S tmux
+    # fi
 
-    if [[ "$varInstallWireguard" == "Y" || "$varInstallWireguard" == "y" ]]; then
-        sudo pacman -S wireguard-tools
-    fi
+    # if [[ "$varInstallWireguard" == "Y" || "$varInstallWireguard" == "y" ]]; then
+    #     sudo pacman -S wireguard-tools
+    # fi
 
-    if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
-        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt)
-    fi
+    # if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
+    #     sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt)
+    # fi
 
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
         rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc
@@ -80,9 +88,9 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         sudo ln -fvs /var/lib/flatpak/exports/bin/io.github.giantpinkrobots.varia /usr/bin/varia
     fi
 
-    if [[ "$varInstallDeluge" == "Y" || "$varInstallDeluge" == "y" ]]; then
-        sudo pacman -S deluge deluge-gtk
-    fi
+    # if [[ "$varInstallDeluge" == "Y" || "$varInstallDeluge" == "y" ]]; then
+    #     sudo pacman -S deluge deluge-gtk
+    # fi
 
     if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
         $HOME/.cargo/bin/cargo install kanata
