@@ -1,6 +1,7 @@
 dotnet-runtime
 dotnet-sdk
 github-cli
+go
 kubectl
 lazygit
 nodejs
