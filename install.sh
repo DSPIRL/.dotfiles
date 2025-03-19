@@ -5,7 +5,15 @@ chassis=$(hostnamectl chassis)
 
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
     sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt)
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+    read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
+    if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
+        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    fi
+
+    # ohmyzsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     # Install YAY
     if [[ "$chassis" == "laptop" ]]; then
@@ -28,11 +36,6 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         sudo pacman -S tmux
     fi
 
-    read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
-    if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
-        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
-    fi
-
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     if [[ "$varInstallWireguard" == "Y" || "$varInstallWireguard" == "y" ]]; then
         sudo pacman -S wireguard-tools
@@ -50,9 +53,6 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt)
         echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
     fi
-
-    # ohmyzsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting already on your machine. (Y/N): ' varRunStow
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
