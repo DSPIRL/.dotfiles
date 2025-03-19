@@ -9,17 +9,25 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     ##### USER CHOICES #####
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
+    if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
+        read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
+    fi
+    read -rp 'Do you want to install Brave Browser? (Y/N): ' varInstallBraveBrowser
+    read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
+    read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
-    read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
     read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
-    read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
+    read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
+    read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
+
     if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
         sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
+
     if [[ "$varInstallSyncthing" == "Y" || "$varInstallSyncthing" == "y" ]]; then
         sudo pacman -S syncthing
         systemctl --user enable syncthing.service
@@ -60,6 +68,20 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
         sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
         yay -S carapace-bin
+    fi
+
+    if [[ "$varInstallBraveBrowser" == "Y" || "$varInstallBraveBrowser" == "y" ]]; then
+        flatpak install flathub com.brave.Browser
+        sudo ln -fvs /var/lib/flatpak/exports/bin/com.brave.Browser /usr/bin/brave
+    fi
+
+    if [[ "$varInstallVaria" == "Y" || "$varInstallVaria" == "y" ]]; then
+        flatpak install flathub io.github.giantpinkrobots.varia
+        sudo ln -fvs /var/lib/flatpak/exports/bin/io.github.giantpinkrobots.varia /usr/bin/varia
+    fi
+
+    if [[ "$varInstallDeluge" == "Y" || "$varInstallDeluge" == "y" ]]; then
+        sudo pacman -S deluge deluge-gtk
     fi
 
     if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
