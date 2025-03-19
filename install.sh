@@ -96,13 +96,14 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         $HOME/.cargo/bin/cargo install kanata
     fi
 
+    ##### END USER CHOICES #####
+
+    /usr/bin/zoxide init nushell > ~/.zoxide.nu
+    chsh -s /usr/bin/zsh
+
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
         echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
     fi
-    ##### END USER CHOICES #####
-
-    ./usr/bin/zoxide init nushell >~/.zoxide.nu
-    chsh -s /usr/bin/nu
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
