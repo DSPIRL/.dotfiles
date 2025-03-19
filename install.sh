@@ -12,11 +12,6 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
 
-    # Install YAY
-    if [[ "$chassis" == "laptop" ]]; then
-    else
-    fi
-
     ##### USER CHOICES #####
     read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
