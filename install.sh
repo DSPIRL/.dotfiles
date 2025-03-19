@@ -25,7 +25,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
 
     # TODO: add an install for all of the questions. It needs to be a one liner to install all pacman packages in one go to prevent requiring a bunch of confirmations
-    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt) $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} ]] && echo tmux) $([[ ${varInstallWireguard^^} ]] && echo wireguard-tools) $([[ ${varArchVM^^} ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt) $([[ ${varInstallDeluge^^} ]] && echo "deluge deluge-gtk")
+    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt) $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk")
     # TODO: add install for varInstallCarapace
 
     if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
@@ -98,7 +98,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
     ##### END USER CHOICES #####
 
-    /usr/bin/zoxide init nushell > ~/.zoxide.nu
+    /usr/bin/zoxide init nushell >~/.zoxide.nu
     chsh -s /usr/bin/zsh
 
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
