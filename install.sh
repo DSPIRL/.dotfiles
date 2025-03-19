@@ -35,6 +35,11 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         systemctl --user start syncthing.service
     fi
 
+    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
+    if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
+        sudo pacman -S tmux
+    fi
+
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     if [[ "$varInstallWireguard" == "Y" || "$varInstallWireguard" == "y" ]]; then
         sudo pacman -S wireguard-tools
@@ -52,9 +57,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
         stow .
     fi
 
-    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
     if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
-        sudo pacman -S tmux
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
     ##### END USER CHOICES #####
