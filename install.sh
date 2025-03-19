@@ -6,13 +6,8 @@ chassis=$(hostnamectl chassis)
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
     sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt)
 
-    read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
-    if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
-        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    fi
-
     ##### USER CHOICES #####
+    read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
     read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
@@ -21,6 +16,10 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
+    if [[ "$varInstallDevtools" == "Y" || "$varInstallDevtools" == "y" ]]; then
+        sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt)
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    fi
     if [[ "$varInstallSyncthing" == "Y" || "$varInstallSyncthing" == "y" ]]; then
         sudo pacman -S syncthing
         systemctl --user enable syncthing.service
@@ -64,7 +63,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     fi
 
     if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
-        cargo install kanata
+        $HOME/.cargo/bin/cargo install kanata
     fi
 
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
