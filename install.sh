@@ -63,9 +63,12 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     ##### END USER CHOICES #####
 
     # ohmyzsh
-    cd
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    rm ~/.zshrc
+    read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
+    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
+        cd
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        rm ~/.zshrc
+    fi
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
         cd .dotfiles
         stow .
