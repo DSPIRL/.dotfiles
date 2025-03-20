@@ -4,8 +4,6 @@ operatingSystem=$(grep -i "PRETTY_NAME" </etc/os-release | awk -F'"' '{print $2}
 chassis=$(hostnamectl chassis)
 
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
-    # sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt)
-
     ##### USER CHOICES #####
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
@@ -24,7 +22,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
 
-    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk")
+    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk")
 
     if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -36,7 +34,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     fi
 
     if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
-        rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc
+        rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc ~/.tmux
         stow .
     fi
 
@@ -84,11 +82,11 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/brewPackages.txt)
+    brew install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/brewPackages.txt)
 else
     read -rp 'Are you on a Debian based disto? (Y/N): ' varDebian
     if [[ "$varDebian" == "Y" || "$varDebian" == "y" ]]; then
-        sudo apt install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/debianPackages.txt)
+        sudo apt install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/debianPackages.txt)
         chsh -s /usr/bin/zsh
     fi
 fi
