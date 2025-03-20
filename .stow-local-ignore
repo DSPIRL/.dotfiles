@@ -3,6 +3,8 @@
 \.idea$
 \.stow-local-ignore$
 ^shell$
+^tpm$
+^catppuccin-tmux$
 /.*\.txt$
 /.*\.sh$
 /.*\.md$
