@@ -4,7 +4,7 @@
 \.stow-local-ignore$
 ^package_lists$
 ^shell$
-/\.config/tmux/plugins
+^plugins$
 ^tpm$
 ^catppuccin-tmux$
 /.*\.txt$
