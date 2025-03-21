@@ -7,22 +7,34 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     # sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt)
 
     ##### USER CHOICES #####
+    echo '##### SYSTEM SETUP #####'
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
-    read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
-    if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
-        read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
-    fi
+    read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
+    read -rp 'Run stow automatically? WARNING: This will overwrite conflicting dotfiles already on your machine. (Y/N): ' varRunStow
 
+    echo `##### APPLICATIONS #####`
     read -rp 'Do you want to install Brave Browser? (Y/N): ' varInstallBraveBrowser
     read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
     read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
-    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
     read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
-    read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
+
+    echo '##### SHELL CONFIG #####'
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
-    read -rp 'Run stow automatically? WARNING: This will overwrite conflicting files already on your machine. (Y/N): ' varRunStow
+    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
+        echo "\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        WHEN YOU GET TO THE ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE DEFAULT SHELL, ANSWER NO AND THEN TYPE \"exit\" TO CONTINUE THIS INSTALLATION\n
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    fi
+    read -rp 'Do you want ZSH or Nushell as your default shell? (Z/N): ' varDefaultShell
+    read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
+    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
+        if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
+            read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
+        fi
+    fi
+    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
 
     sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk")
 
@@ -56,6 +68,9 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
 
     if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
         sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+    fi
+
+    if [[ "$varInstallCarapace" == "Y" || "$varInstallCarapace" == "y" ]]; then
         yay -S carapace-bin
     fi
 
@@ -76,7 +91,12 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     ##### END USER CHOICES #####
 
     /usr/bin/zoxide init nushell >~/.zoxide.nu
-    chsh -s /usr/bin/zsh
+
+    if [[ "${varDefaultShell^^}" == "Z" ]]; then
+        chsh -s /usr/bin/zsh
+    elif [[ "${varDefaultShell^^}" == "N" ]]; then
+        chsh -s /usr/bin/nushell
+    fi
 
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
         echo "Please review \"archVirtualizationInstruction.md\" to complete setup."

@@ -106,18 +106,20 @@ if [[ "$hostOS" == "$macOS" ]]; then
     )
 elif [[ "$hostOS" == "$linux" ]]; then
     plugins=(
+        ##### DISABLED #####
         # aliases
-        archlinux
-        dotnet
         # fzf
         # git
-        kubectl
-        pip
-        podman
-        docker
-        rust
         # ssh
-        zoxide
+        ##### ENABLED #####
+        # archlinux
+        # docker
+        # dotnet
+        # kubectl
+        # pip
+        # podman
+        # rust
+        # zoxide
     )
 fi
 
@@ -128,3 +130,7 @@ source ~/.dotfiles/shell/.aliases.sh
 
 ##### STARSHIP #####
 eval "$(starship init zsh)"
+
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
