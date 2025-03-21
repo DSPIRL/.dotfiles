@@ -98,7 +98,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     if [[ "${varDefaultShell^^}" == "Z" ]]; then
         chsh -s /usr/bin/zsh
     elif [[ "${varDefaultShell^^}" == "N" ]]; then
-        chsh -s /usr/bin/nushell
+        chsh -s /usr/bin/nu
     fi
 
     if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
