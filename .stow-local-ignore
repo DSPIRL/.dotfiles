@@ -2,7 +2,9 @@
 \.gitignore$
 \.idea$
 \.stow-local-ignore$
+^package_lists$
 ^shell$
+^plugins$
 ^tpm$
 ^catppuccin-tmux$
 /.*\.txt$
