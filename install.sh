@@ -10,7 +10,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting dotfiles already on your machine. (Y/N): ' varRunStow
 
-    echo `##### APPLICATIONS #####`
+    echo '\n##### APPLICATIONS #####'
     read -rp 'Do you want to install Brave Browser? (Y/N): ' varInstallBraveBrowser
     read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
     read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
@@ -18,14 +18,16 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
 
-    echo '##### SHELL CONFIG #####'
+    echo '\n##### SHELL CONFIG #####'
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
-    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
-        echo "\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        WHEN YOU GET TO THE ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE DEFAULT SHELL, ANSWER NO AND THEN TYPE \"exit\" TO CONTINUE THIS INSTALLATION\n
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    fi
     read -rp 'Do you want ZSH or Nushell as your default shell? (Z/N): ' varDefaultShell
+    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
+        echo "
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE DEFAULT SHELL, ANSWER NO AND THEN TYPE \"exit\" TO CONTINUE THIS INSTALLATION
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+"
+    fi
     read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
     if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
         if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
