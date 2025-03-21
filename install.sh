@@ -5,12 +5,14 @@ chassis=$(hostnamectl chassis)
 
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
     ##### USER CHOICES #####
+    echo ""
     echo '##### SYSTEM SETUP #####'
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting dotfiles already on your machine. (Y/N): ' varRunStow
 
-    echo '\n##### APPLICATIONS #####'
+    echo ""
+    echo '##### APPLICATIONS #####'
     read -rp 'Do you want to install Brave Browser? (Y/N): ' varInstallBraveBrowser
     read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
     read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
@@ -18,7 +20,8 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     read -rp 'Do you want to setup virtual machines? (Y/N): ' varArchVM
 
-    echo '\n##### SHELL CONFIG #####'
+    echo ""
+    echo '##### SHELL CONFIG #####'
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     read -rp 'Do you want ZSH or Nushell as your default shell? (Z/N): ' varDefaultShell
     if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
