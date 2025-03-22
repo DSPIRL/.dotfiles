@@ -24,6 +24,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     echo '##### SHELL CONFIG #####'
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     read -rp 'Do you want ZSH or Nushell as your default shell? (Z/N): ' varDefaultShell
+
     if [[ "${varDefaultShell^^}" == "Z" && "${varInstallOMZ^^}" == "Y" ]]; then
         echo "
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -31,14 +32,12 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 "
     fi
+
     read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
-    if [[ "${varInstallOMZ^^}" == "Y" ]]; then
-        if [[ "${varInstallYay^^}" == "Y" ]]; then
-            read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
-        fi
+    if [[ "${varInstallYay^^}" == "Y" ]]; then
+        read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
     fi
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
-
     sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk")
 
     if [[ "${varInstallKanata^^}" == "Y" ]]; then
