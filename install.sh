@@ -60,7 +60,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 
-    if [[ "${varInstallLazyVim^^}" == "Y" ]];
+    if [[ "${varInstallLazyVim^^}" == "Y" ]]; then
         rm -rf ~/.config/nvim
         rm -rf ~/.local/state/nvim
         rm -rf ~/.local/share/nvim
