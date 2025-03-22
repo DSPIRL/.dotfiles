@@ -11,3 +11,8 @@
 /.*\.sh$
 /.*\.md$
 /.*\.DS_Store$
+
+/\.config/nvim/LICENSE$
+/\.config/nvim/README.md$
+/\.config/nvim/lazy-lock.json$
+/\.config/nvim/lazyvim.json$

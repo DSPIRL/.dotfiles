@@ -17,6 +17,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
     read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
     read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
+    read -rp 'Do you want to install LazyVim? (Y/N): ' varInstallLazyVim
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     read -rp 'Do you want to install and setup Virtual Machines? (Y/N): ' varArchVM
 
@@ -50,11 +51,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         systemctl --user start syncthing.service
     fi
 
-    if [[ "${varRunStow^^}" == "Y" ]]; then
-        rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc ~/.tmux
-        stow .
-    fi
-
     if [[ "${varInstallTmux^^}" == "Y" ]]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
@@ -62,10 +58,19 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     # ohmyzsh
     if [[ "${varInstallOMZ^^}" == "Y" ]]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-        rm ~/.zshrc
+    fi
+
+    if [[ "${varInstallLazyVim^^}" == "Y" ]];
+        rm -rf ~/.config/nvim
+        rm -rf ~/.local/state/nvim
+        rm -rf ~/.local/share/nvim
+
+        git clone https://github.com/LazyVim/starter ~/.config/nvim
+        rm -rf ~/.config/nvim/.git
     fi
 
     if [[ "${varRunStow^^}" == "Y" ]]; then
+        rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc ~/.tmux
         stow .
     fi
 
