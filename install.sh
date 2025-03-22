@@ -70,6 +70,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     fi
 
     if [[ "${varInstallYay^^}" == "Y" ]]; then
+        cd $HOME
         sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     fi
 
