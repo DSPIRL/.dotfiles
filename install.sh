@@ -38,7 +38,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
     fi
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
-    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk")
+    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") $([[ {$varInstallYay^^} == "Y" ]] && echo "go")
 
     if [[ ${varInstallKanata^^} == "Y" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
