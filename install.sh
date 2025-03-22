@@ -25,7 +25,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     read -rp 'Do you want ZSH or Nushell as your default shell? (Z/N): ' varDefaultShell
 
-    if [[ "${varDefaultShell^^}" == "Z" && "${varInstallOMZ^^}" == "Y" ]]; then
+    if [[ "${varInstallOMZ^^}" == "Y" ]]; then
         echo "
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE DEFAULT SHELL, ANSWER NO AND THEN TYPE \"exit\" TO CONTINUE THIS INSTALLATION
