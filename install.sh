@@ -24,7 +24,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     echo '##### SHELL CONFIG #####'
     read -rp 'Do you want to install oh-my-zsh? (Y/N): ' varInstallOMZ
     read -rp 'Do you want ZSH or Nushell as your default shell? (Z/N): ' varDefaultShell
-    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
+    if [[ "${varDefaultShell^^}" == "Z" && "${varInstallOMZ^^}" == "Y" ]]; then
         echo "
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE DEFAULT SHELL, ANSWER NO AND THEN TYPE \"exit\" TO CONTINUE THIS INSTALLATION
@@ -32,8 +32,8 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 "
     fi
     read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
-    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
-        if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
+    if [[ "${varInstallOMZ^^}" == "Y" ]]; then
+        if [[ "${varInstallYay^^}" == "Y" ]]; then
             read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
         fi
     fi
@@ -41,53 +41,53 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk")
 
-    if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
+    if [[ "${varInstallKanata^^}" == "Y" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
 
-    if [[ "$varInstallSyncthing" == "Y" || "$varInstallSyncthing" == "y" ]]; then
+    if [[ "${varInstallSyncthing^^}" == "Y" ]]; then
         systemctl --user enable syncthing.service
         systemctl --user start syncthing.service
     fi
 
-    if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
+    if [[ "${varRunStow^^}" == "Y" ]]; then
         rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc ~/.tmux
         stow .
     fi
 
-    if [[ "$varInstallTmux" == "Y" || "$varInstallTmux" == "y" ]]; then
+    if [[ "${varInstallTmux^^}" == "Y" ]]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
     # ohmyzsh
-    if [[ "$varInstallOMZ" == "Y" || "$varInstallOMZ" == "y" ]]; then
+    if [[ "${varInstallOMZ^^}" == "Y" ]]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         rm ~/.zshrc
     fi
 
-    if [[ "$varRunStow" == "Y" || "$varRunStow" == "y" ]]; then
+    if [[ "${varRunStow^^}" == "Y" ]]; then
         stow .
     fi
 
-    if [[ "$varInstallYay" == "Y" || "$varInstallYay" == "y" ]]; then
+    if [[ "${varInstallYay^^}" == "Y" ]]; then
         sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     fi
 
-    if [[ "$varInstallCarapace" == "Y" || "$varInstallCarapace" == "y" ]]; then
+    if [[ "${varInstallCarapace^^}" == "Y" ]]; then
         yay -S carapace-bin
     fi
 
-    if [[ "$varInstallBraveBrowser" == "Y" || "$varInstallBraveBrowser" == "y" ]]; then
+    if [[ "${varInstallBraveBrowser^^}" == "Y" ]]; then
         flatpak install flathub com.brave.Browser
         sudo ln -fvs /var/lib/flatpak/exports/bin/com.brave.Browser /usr/bin/brave
     fi
 
-    if [[ "$varInstallVaria" == "Y" || "$varInstallVaria" == "y" ]]; then
+    if [[ "${varInstallVaria^^}" == "Y" ]]; then
         flatpak install flathub io.github.giantpinkrobots.varia
         sudo ln -fvs /var/lib/flatpak/exports/bin/io.github.giantpinkrobots.varia /usr/bin/varia
     fi
 
-    if [[ "$varInstallKanata" == "Y" || "$varInstallKanata" == "y" ]]; then
+    if [[ "${varInstallKanata^^}" == "Y" ]]; then
         $HOME/.cargo/bin/cargo install kanata
     fi
 
@@ -101,7 +101,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         chsh -s /usr/bin/nu
     fi
 
-    if [[ "$varArchVM" == "Y" || "$varArchVM" == "y" ]]; then
+    if [[ "${varArchVM^^}" == "Y" ]]; then
         echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
     fi
 
