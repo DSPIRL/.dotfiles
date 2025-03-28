@@ -123,6 +123,8 @@ elif [[ "$hostOS" == "$linux" ]]; then
     )
 fi
 
+
+
 source $ZSH/oh-my-zsh.sh
 
 ##### ALIASES #####
@@ -130,6 +132,11 @@ source ~/.dotfiles/shell/.aliases.sh
 
 ##### STARSHIP #####
 eval "$(starship init zsh)"
+
+##### KEYBINDS #####
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^O' edit-command-line
 
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
