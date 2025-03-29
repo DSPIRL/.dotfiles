@@ -20,6 +20,9 @@ stow
 tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
+noto-fonts
+noto-fonts-emoji
+ttf-noto-nerd
 wl-clipboard
 zoxide
 zsh

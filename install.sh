@@ -7,6 +7,8 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     ##### USER CHOICES #####
     echo ""
     echo '##### SYSTEM SETUP #####'
+    read -rp 'Do you want to install sensible default packages? (Y/N): ' varInstallDefaults
+    read -rp 'Do you want to install and setup Hyprland? (Y/N): ' varInstallHyprland
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting dotfiles already on your machine. (Y/N): ' varRunStow
@@ -40,7 +42,15 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     fi
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
 
-    sudo pacman -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") $([[ ${varInstallYay^^} == "Y" ]] && echo "go")
+    sudo pacman -S $([[ ${varInstallDefaults^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
+        $([[ ${varInstallHyprland^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archHyprlandPackages.txt) \
+        $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) \
+        $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) \
+        $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) \
+        $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) \
+        $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) \
+        $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") \
+        $([[ ${varInstallYay^^} == "Y" ]] && echo "go")
 
     if [[ "${varInstallKanata^^}" == "Y" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -49,10 +59,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     if [[ "${varInstallSyncthing^^}" == "Y" ]]; then
         systemctl --user enable syncthing.service
         systemctl --user start syncthing.service
-    fi
-
-    if [[ "${varInstallTmux^^}" == "Y" ]]; then
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
     # ohmyzsh
@@ -72,6 +78,10 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     if [[ "${varRunStow^^}" == "Y" ]]; then
         rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc ~/.tmux
         stow .
+    fi
+
+    if [[ "${varInstallTmux^^}" == "Y" ]]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
     if [[ "${varInstallYay^^}" == "Y" ]]; then

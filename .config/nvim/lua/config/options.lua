@@ -6,7 +6,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.ignorecase = true
-vim.opt.scrolloff = 21
+vim.opt.scrolloff = 40
 -- vim.opt.wrapscan = false
 vim.opt.smartindent = true
 vim.opt.autoindent = true
