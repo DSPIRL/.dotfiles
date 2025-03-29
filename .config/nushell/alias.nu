@@ -41,6 +41,11 @@ alias exifkeepicc = exiftool -all= --icc_profile:all
 alias nv = nvim
 
 alias k = kubectl
+alias p = podman
+alias pc = podman-compose
+
+alias d = docker
+alias dc = docker compose
 
 #alias tmux-start = tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'Terminal'; tmux new-window -t GoodSesh:2 -n 'Neovim'; tmux attach-session -t GoodSesh;
 
