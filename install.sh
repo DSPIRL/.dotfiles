@@ -56,6 +56,10 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
 
+    if [[ "${varInstallDevtools^^}" == "Y" ]]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    fi
+
     if [[ "${varInstallSyncthing^^}" == "Y" ]]; then
         systemctl --user enable syncthing.service
         systemctl --user start syncthing.service
