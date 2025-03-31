@@ -10,9 +10,12 @@ git
 gnome-calculator
 gnome-dictionary
 htop
+lsof
 man-db
 nautilus
 neovim
+noto-fonts
+noto-fonts-emoji
 nushell
 silicon
 starship
@@ -20,8 +23,6 @@ stow
 tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
-noto-fonts
-noto-fonts-emoji
 ttf-noto-nerd
 wl-clipboard
 zoxide

@@ -10,6 +10,7 @@ sudo vim /etc/libvirt/libvirtd.conf
 # Confirm the following lines
 unix_sock_group = "libvirt"
 unix_sock_ro_perms = "0777"
+unix_sock_rw_perms = "0770"
 ```
 
 ## Add user to libvirt group
