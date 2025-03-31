@@ -2,10 +2,8 @@ dotnet-runtime
 dotnet-sdk
 github-cli
 go
-kubectl
 lazygit
 nodejs
 npm
-podman
 pypy
 uv

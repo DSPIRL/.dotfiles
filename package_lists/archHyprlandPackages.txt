@@ -1,4 +1,7 @@
 hyprland
+hyprpaper
+hyprpolkitagent
 pavucontrol
 swww
+swaync
 waybar

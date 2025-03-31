@@ -12,6 +12,9 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
     read -rp 'Run stow automatically? WARNING: This will overwrite conflicting dotfiles already on your machine. (Y/N): ' varRunStow
+    if [[ "${chassis}" == "laptop" ]]; then
+        read -rp 'Do you want to install TLP for power management? (Y/N): ' varInstallTLP
+    fi
 
     echo ""
     echo '##### APPLICATIONS #####'
@@ -50,7 +53,8 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) \
         $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) \
         $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") \
-        $([[ ${varInstallYay^^} == "Y" ]] && echo "go")
+        $([[ ${varInstallYay^^} == "Y" ]] && echo "go") \
+        $([[ ${chassis} == "laptop" && ${varInstallTLP^^} == "Y" ]] && echo "tlp")
 
     if [[ "${varInstallKanata^^}" == "Y" ]]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
