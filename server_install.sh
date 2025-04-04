@@ -34,8 +34,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     yay -S carapace-bin
 
-    $HOME/.cargo/bin/cargo install kanata
-
     ##### END USER CHOICES #####
 
     /usr/bin/zoxide init nushell >~/.zoxide.nu
