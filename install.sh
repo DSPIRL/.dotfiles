@@ -131,7 +131,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
 elif [[ "$operatingSystem" == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/brewPackages.txt)
+    brew install $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/macosPackages.txt)
 else
     read -rp 'Are you on a Debian based disto? (Y/N): ' varDebian
     if [[ "${varDebian^^}" == "Y" ]]; then
