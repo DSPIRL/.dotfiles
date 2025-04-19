@@ -20,6 +20,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     echo '##### APPLICATIONS #####'
     read -rp 'Do you want to install Brave Browser? (Y/N): ' varInstallBraveBrowser
     read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
+    read -rp 'Do you want to install Easy Effects for Audio? (Y/N): ' varInstallEasyEffects
     read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
     read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
     read -rp 'Do you want to install LazyVim? (Y/N): ' varInstallLazyVim
@@ -101,14 +102,20 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         yay -S carapace-bin
     fi
 
+    flatpak install flathub $([[ "${varInstallBraveBrowser^^}" == "Y" ]] && echo "com.brave.Browser") \
+        $([[ "${varInstallVaria^^}" == "Y" ]] && echo "io.github.giantpinkrobots.varia") \
+        $([[ "${varInstallEasyEffects^^}" == "Y" ]] && echo "com.github.wwmm.easyeffects")
+
     if [[ "${varInstallBraveBrowser^^}" == "Y" ]]; then
-        flatpak install flathub com.brave.Browser
         sudo ln -fvs /var/lib/flatpak/exports/bin/com.brave.Browser /usr/bin/brave
     fi
 
     if [[ "${varInstallVaria^^}" == "Y" ]]; then
-        flatpak install flathub io.github.giantpinkrobots.varia
         sudo ln -fvs /var/lib/flatpak/exports/bin/io.github.giantpinkrobots.varia /usr/bin/varia
+    fi
+
+    if [[ "${varInstallEasyEffects^^}" == "Y" ]]; then
+        sudo ln -fvs /var/lib/flatpak/exports/bin/com.github.wwmm.easyeffects /usr/bin/easyeffects
     fi
 
     if [[ "${varInstallKanata^^}" == "Y" ]]; then
