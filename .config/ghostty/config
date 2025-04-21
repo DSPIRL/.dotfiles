@@ -51,9 +51,9 @@ quit-after-last-window-closed = true
 quit-after-last-window-closed-delay = 2s
 shell-integration-features = no-cursor
 cursor-style = block
-cursor-style-blink = false
-# background-opacity = .86
-# background-blur = true
+cursor-style-blink = true
+background-opacity = .2
+background-blur = true
 
 # === KEYBINDS ===
 # SPLITS
