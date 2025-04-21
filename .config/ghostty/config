@@ -52,7 +52,7 @@ quit-after-last-window-closed-delay = 2s
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true
-background-opacity = .2
+background-opacity = .7
 background-blur = true
 
 # === KEYBINDS ===

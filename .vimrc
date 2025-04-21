@@ -12,3 +12,5 @@
 " :set clipboard=unnamed
 " LINUX
 " :set clipboard=unnamedplus
+" HIGHLIGHT
+" :set hlsearch
