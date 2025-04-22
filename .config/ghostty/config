@@ -73,15 +73,15 @@ keybind = ctrl+shift+q=quit
 keybind = alt+f4=close_window
 
 # SPLITS
-keybind = alt+h=goto_split:left
-keybind = alt+j=goto_split:down
-keybind = alt+k=goto_split:up
-keybind = alt+l=goto_split:right
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:down
+keybind = ctrl+alt+k=goto_split:up
+keybind = ctrl+alt+l=goto_split:right
 
-keybind = ctrl+alt+l=new_split:right
-keybind = ctrl+alt+h=new_split:left
-keybind = ctrl+alt+j=new_split:down
-keybind = ctrl+alt+k=new_split:up
+keybind = ctrl+shift+l=new_split:right
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+k=new_split:up
 
 keybind = ctrl+alt+equal=equalize_splits
 keybind = ctrl+alt+shift+k=resize_split:up,10
