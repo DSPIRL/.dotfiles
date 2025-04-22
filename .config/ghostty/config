@@ -52,7 +52,7 @@ quit-after-last-window-closed-delay = 2s
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true
-background-opacity = .7
+background-opacity = .55
 background-blur = true
 
 # === KEYBINDS ===
@@ -96,7 +96,7 @@ keybind = shift+left=adjust_selection:left
 keybind = alt+eight=goto_tab:8
 keybind = shift+page_up=scroll_page_up
 
-keybind = ctrl+alt+shift+j=write_screen_file:open
+keybind = ctrl+alt+o=write_screen_file:open
 keybind = ctrl+shift+j=write_screen_file:paste
 
 keybind = ctrl+shift+left=previous_tab
