@@ -1,12 +1,13 @@
 ;;; Configuration Settings
 (defcfg
     rapid-event-delay 20            ;; Delay for rapid event processing
-    process-unmapped-keys yes        ;; Allow unmapped keys to pass through
-    linux-dev-names-include (
-        "AT Translated Set 2 keyboard"
+    process-unmapped-keys yes       ;; Allow unmapped keys to pass through
+    macos-dev-names-include (
+        "Karabiner DriverKit VirtualHIDKeyboard 1.8.0"
     )
-    linux-dev-names-exclude (        ;; Exclude specific devices
-        "TPPS/2 Elan TrackPoint"
+    macos-dev-names-exclude (       ;; Exclude specific devices
+        "Glove80"
+        "Glove80 Left"
     )
 )
 
