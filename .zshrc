@@ -6,6 +6,7 @@ linux="Linux"
 if [[ "$hostOS" == "$macOS" ]]; then
     ##### EDITOR #####
     export VISUAL="/opt/homebrew/bin/nvim"
+    export EDITOR="/opt/homebrew/bin/nvim"
 
     ##### JAVA #####
     export JAVA_HOME="$HOME/Library/Java/JavaVirtualMachines/openjdk-22.0.2/Contents/Home"

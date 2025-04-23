@@ -1,5 +1,5 @@
-##### LINUX #####
 if ((sys host | get name) == "Linux") {
+##### LINUX #####
     # EDITOR #
     $env.VISUAL = "/usr/bin/nvim"
     # C# PATH #
@@ -12,11 +12,9 @@ if ((sys host | get name) == "Linux") {
 } else if ((sys host | get name) == "Darwin") {
 ##### MACOS #####
     $env.VISUAL = "/opt/homebrew/bin/nvim"
+    $env.config.buffer_editor = "/opt/homebrew/bin/nvim"
 
 }
-
-
-
 
 
 ##### GLOBAL #####

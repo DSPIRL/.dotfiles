@@ -1,5 +1,5 @@
-source ~/.config/nushell/paths.nu
 source ~/.config/nushell/env_config.nu
+source ~/.config/nushell/paths.nu
 
 # source ~/.dotfiles/config/nushell/login.nu
 
