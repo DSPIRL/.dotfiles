@@ -1,4 +1,4 @@
-source ~/.config/nushell/linuxPaths.nu
+source ~/.config/nushell/paths.nu
 source ~/.config/nushell/env_config.nu
 
 # source ~/.dotfiles/config/nushell/login.nu
