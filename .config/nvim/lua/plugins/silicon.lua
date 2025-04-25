@@ -1,3 +1,4 @@
+local operating_system = os.getenv("HOME")
 return {
     {
         "michaelrommel/nvim-silicon",
@@ -13,7 +14,8 @@ return {
             require("nvim-silicon").setup({
                 font = "Jetbrains Mono Nerd Font=34;Noto Color Emoji=34",
                 theme = "Dracula",
-                background = "#94e2d5",
+                -- background = "#94e2d5",
+                background_image = string.format("%s/.dotfiles/.config/silicon/background.jpg", operating_system),
                 to_clipboard = true,
                 no_window_controls = false,
                 pad_horiz = 70,
