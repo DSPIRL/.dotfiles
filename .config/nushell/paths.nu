@@ -6,7 +6,7 @@ if ((sys host | get name) == "Linux") {
     if ("~/.dotnet" | path exists) {
         $env.DOTNET_ROOT = "/usr/local/share/dotnet"
         load-env {
-            "PATH": ($env.PATH | append $env.DOTNET_ROOT | append "~/.dotnet/tools")
+            "PATH": ($env.PATH | append $env.DOTNET_ROOT | append $"($env.HOME)/.dotnet/tools")
         }
     }
 } else if ((sys host | get name) == "Darwin") {
@@ -22,11 +22,11 @@ if ((sys host | get name) == "Linux") {
 $env.MANPAGER = "nvim +Man!"
 
 # PATH + VARS #
-$env.PATH = ($env.PATH | prepend ~/.local/bin)
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
 
 # RUST PATH #
 if ("~/.cargo" | path exists) {
-    $env.CARGO_HOME = "~/.cargo/bin"
+    $env.CARGO_HOME = $"($env.HOME)/.cargo/bin"
     load-env {
         "PATH": ($env.PATH | prepend $env.CARGO_HOME)
     }

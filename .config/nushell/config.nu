@@ -16,3 +16,5 @@ source ~/.config/nushell/starship.nu
 source ~/.cache/carapace/init.nu
 
 source ~/.config/nushell/alias.nu
+
+source ~/.cargo/bin/env.nu
