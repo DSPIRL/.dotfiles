@@ -17,6 +17,3 @@ source ~/.cache/carapace/init.nu
 
 source ~/.config/nushell/alias.nu
 
-if ((sys host | get name) == "Linux") {
-    source ~/.cargo/bin/env.nu
-}
