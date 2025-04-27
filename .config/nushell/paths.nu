@@ -26,7 +26,7 @@ $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
 
 # RUST PATH #
 if ("~/.cargo" | path exists) {
-    $env.CARGO_HOME = $"($env.HOME)/.cargo/bin"
+    $env.CARGO_HOME = $"($env.HOME)/.cargo"
     load-env {
         "PATH": ($env.PATH | prepend $env.CARGO_HOME)
     }
