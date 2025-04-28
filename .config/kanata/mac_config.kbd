@@ -2,12 +2,12 @@
 (defcfg
     rapid-event-delay 20            ;; Delay for rapid event processing
     process-unmapped-keys yes       ;; Allow unmapped keys to pass through
-    macos-dev-names-include (
-        "Karabiner DriverKit VirtualHIDKeyboard 1.8.0"
-    )
     macos-dev-names-exclude (       ;; Exclude specific devices
         "Glove80"
         "Glove80 Left"
+    )
+    macos-dev-names-include (
+        "Apple Internal Keyboard / Trackpad"
     )
 )
 
