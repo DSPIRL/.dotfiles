@@ -6,6 +6,7 @@ curl
 eza
 flatpak
 fzf
+ghostty
 git
 gnome-calculator
 gnome-dictionary
