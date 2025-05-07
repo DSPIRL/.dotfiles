@@ -1,3 +1,28 @@
 [ui]
 paginate = "never"
 defualt-command = "log"
+
+[user]
+# email = "{some email}"
+name = "Raphi"
+
+[init]
+defaultBranch = "main"
+
+[core]
+autocrlf = "input"
+editor = "/opt/homebrew/bin/nvim"
+
+[diff]
+tool = "nvimdiff"
+
+[difftool]
+prompt = false
+
+[signing]
+behavior = "own"
+backend = "gpg"
+# key = "{some key}"
+
+[git]
+sign-on-push = true
