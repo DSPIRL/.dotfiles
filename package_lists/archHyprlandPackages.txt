@@ -5,3 +5,4 @@ pavucontrol
 swww
 swaync
 waybar
+wofi

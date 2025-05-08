@@ -3,6 +3,7 @@ btop
 eza
 fzf
 htop
+jj
 neovim
 nushell
 silicon

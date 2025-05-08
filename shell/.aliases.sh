@@ -40,6 +40,9 @@ alias tms="tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'T
 ##### EMACS #####
 alias emacs="emacsclient -c -a 'emacs'"
 
+##### FLATPAK #####
+alias flatpak-alias="~/.dotfiles/shell/scripts/flatpakAlias.sh"
+
 ##### PYTHON #####
 if [[ "$(uname -s)" = "Darwin" ]]; then
     alias python="python3"

@@ -1,12 +1,13 @@
-git
-curl
 alacritty
 btop
+curl
 eza
 flatpak
 fzf
+git
 gnome-calculator
 htop
+jujutsu
 man-db
 manpages
 nautilus

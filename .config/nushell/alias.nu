@@ -50,6 +50,7 @@ alias kanata-start = nu ~/.dotfiles/.config/nushell/scripts/mac-kanata-start.nu
 alias kanata-stop = nu ~/.dotfiles/.config/nushell/scripts/mac-kanata-stop.nu
 
 alias modstat = nu ~/.dotfiles/.config/nushell/scripts/modstat.nu
+alias flatpak-alias = nu ~/.dotfiles/.config/nushell/scripts/flatpak-alias.nu
 
 #alias tmux-start = tmux new-session -d -s GoodSesh; tmux new-window -t GoodSesh::1 -n 'Terminal'; tmux new-window -t GoodSesh:2 -n 'Neovim'; tmux attach-session -t GoodSesh;
 
