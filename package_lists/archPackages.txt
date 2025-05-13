@@ -2,12 +2,10 @@ alacritty
 aspell
 aspell-en
 btop
-curl
 eza
 flatpak
 fzf
 ghostty
-git
 gnome-calculator
 gnome-dictionary
 htop

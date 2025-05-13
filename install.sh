@@ -41,12 +41,26 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     fi
 
     read -rp 'Would you like to install the Paru AUR helper? (Y/N): ' varInstallParu
+
     if [[ "${varInstallParu^^}" == "Y" ]]; then
         read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
     fi
+
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
 
-    sudo pacman -S $([[ ${varInstallDefaults^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
+    sudo pacman -S curl git
+
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+    if [[ "${varInstallParu^^}" == "Y" ]]; then
+        cd $HOME
+        sudo pacman -S --needed base-devel
+        git clone https://aur.archlinux.org/paru.git
+        cd paru
+        makepkg -si
+    fi
+
+    paru -S $([[ ${varInstallDefaults^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
         $([[ ${varInstallHyprland^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archHyprlandPackages.txt) \
         $([[ ${varInstallDevtools^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) \
         $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) \
@@ -55,14 +69,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) \
         $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") \
         $([[ ${chassis} == "laptop" && ${varInstallTLP^^} == "Y" ]] && echo "tlp")
-
-    if [[ "${varInstallKanata^^}" == "Y" ]]; then
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    fi
-
-    if [[ "${varInstallDevtools^^}" == "Y" ]]; then
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    fi
 
     if [[ "${varInstallSyncthing^^}" == "Y" ]]; then
         systemctl --user enable syncthing.service
@@ -92,13 +98,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
-    if [[ "${varInstallParu^^}" == "Y" ]]; then
-        cd $HOME
-        sudo pacman -S --needed base-devel
-        git clone https://aur.archlinux.org/paru.git
-        cd paru
-        makepkg -si
-    fi
+    cd $HOME
 
     if [[ "${varInstallCarapace^^}" == "Y" ]]; then
         paru -S carapace-bin
