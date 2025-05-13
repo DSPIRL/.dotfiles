@@ -1,4 +1,4 @@
-if ((sys host | get name) == "Linux") {
+if ((sys host | get name | str contains --ignore-case "Linux")) {
 ##### LINUX #####
     # EDITOR #
     $env.VISUAL = "/usr/bin/nvim"
@@ -9,7 +9,7 @@ if ((sys host | get name) == "Linux") {
             "PATH": ($env.PATH | append $env.DOTNET_ROOT | append $"($env.HOME)/.dotnet/tools")
         }
     }
-} else if ((sys host | get name) == "Darwin") {
+} else if ((sys host | get name | str contains --ignore-case "Darwin")) {
 ##### MACOS #####
     $env.VISUAL = "/opt/homebrew/bin/nvim"
     $env.config.buffer_editor = "/opt/homebrew/bin/nvim"

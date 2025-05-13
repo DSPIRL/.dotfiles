@@ -1,0 +1,107 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "network",
+        "cpu",
+        "memory",
+        "tray",
+        "custom/lock"
+    ],
+    "hyprland/workspaces": {
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    // "custom/music": {
+    //     "format": "  {}",
+    //     "escape": true,
+    //     "interval": 5,
+    //     "tooltip": false,
+    //     "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+    //     "on-click": "playerctl play-pause",
+    //     "max-length": 50
+    // },
+    "clock": {
+        "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%d/%m/%Y - %H:%M}"
+    },
+    "network": {
+        "format-wifi": "󰤢",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤠",
+        "interval": 5,
+        "tooltip": true,
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "on-click": "ghostty -e nmtui"
+    },
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        // "controller": "bluetoothctl",
+        "format": " {status}",
+        "format-connected": " {num_connections} connected",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": " {usage:>2}%",
+        // "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+        // "format-icons": [
+        //     "▁",
+        //     "▂",
+        //     "▃",
+        //     "▄",
+        //     "▅",
+        //     "▆",
+        //     "▇",
+        //     "█"
+        // ],
+        "on-click": "ghostty -e btop"
+    },
+    "memory": {
+        "interval": 3,
+        // "format": "  {used:0.1f}G/{total:0.1f}G"
+        "format": " {percentage}%"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/monitor": {
+        "tooltip": true,
+        "tooltip-format": "Nightmode",
+        "on-click": "sh -c '(~/.dotfiles/.config/waybar/scripts/hyprsunset.nu)'",
+        "format": ""
+    },
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
+        "format": ""
+    }
+}

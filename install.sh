@@ -40,8 +40,8 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 "
     fi
 
-    read -rp 'Would you like to install the yay AUR helper? (Y/N): ' varInstallYay
-    if [[ "${varInstallYay^^}" == "Y" ]]; then
+    read -rp 'Would you like to install the Paru AUR helper? (Y/N): ' varInstallParu
+    if [[ "${varInstallParu^^}" == "Y" ]]; then
         read -rp 'Do you want to install Carapace completers? (Y/N): ' varInstallCarapace
     fi
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
@@ -54,7 +54,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) \
         $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) \
         $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") \
-        $([[ ${varInstallYay^^} == "Y" ]] && echo "go") \
         $([[ ${chassis} == "laptop" && ${varInstallTLP^^} == "Y" ]] && echo "tlp")
 
     if [[ "${varInstallKanata^^}" == "Y" ]]; then
@@ -93,18 +92,22 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
-    if [[ "${varInstallYay^^}" == "Y" ]]; then
+    if [[ "${varInstallParu^^}" == "Y" ]]; then
         cd $HOME
-        sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+        sudo pacman -S --needed base-devel
+        git clone https://aur.archlinux.org/paru.git
+        cd paru
+        makepkg -si
     fi
 
     if [[ "${varInstallCarapace^^}" == "Y" ]]; then
-        yay -S carapace-bin
+        paru -S carapace-bin
     fi
 
     flatpak install flathub $([[ "${varInstallBraveBrowser^^}" == "Y" ]] && echo "com.brave.Browser") \
         $([[ "${varInstallVaria^^}" == "Y" ]] && echo "io.github.giantpinkrobots.varia") \
-        $([[ "${varInstallEasyEffects^^}" == "Y" ]] && echo "com.github.wwmm.easyeffects")
+        $([[ "${varInstallEasyEffects^^}" == "Y" ]] && echo "com.github.wwmm.easyeffects") \
+        $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "it.mijorus.smile")
 
     if [[ "${varInstallBraveBrowser^^}" == "Y" ]]; then
         sudo ln -fvs /var/lib/flatpak/exports/bin/com.brave.Browser /usr/bin/brave

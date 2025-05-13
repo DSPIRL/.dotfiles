@@ -37,6 +37,7 @@ alias exifall = exiftool -all=
 alias exifkeepicc = exiftool -all= --icc_profile:all
 
 alias nv = nvim
+alias se = sudoedit
 
 alias k = kubectl
 alias p = podman
