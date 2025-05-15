@@ -26,6 +26,8 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install LazyVim? (Y/N): ' varInstallLazyVim
     read -rp 'Do you want to install Wireguard? (Y/N): ' varInstallWireguard
     read -rp 'Do you want to install and setup Virtual Machines? (Y/N): ' varArchVM
+    read -rp 'Do you want to install Cryptomator? (Y/N): ' varInstallCryptomator
+    read -rp 'Do you want to install GIMP? (Y/N): ' varInstallGimp
 
     echo ""
     echo '##### SHELL CONFIG #####'
@@ -107,7 +109,10 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     flatpak install flathub $([[ "${varInstallBraveBrowser^^}" == "Y" ]] && echo "com.brave.Browser") \
         $([[ "${varInstallVaria^^}" == "Y" ]] && echo "io.github.giantpinkrobots.varia") \
         $([[ "${varInstallEasyEffects^^}" == "Y" ]] && echo "com.github.wwmm.easyeffects") \
-        $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "it.mijorus.smile")
+        $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "it.mijorus.smile") \
+        $([[ "${varInstallGimp}" == "Y" ]] && echo "org.gimp.GIMP") \
+        $([[ "${varInstallCryptomator}" == "Y" ]] && echo "org.cryptomator.Cryptomator") \
+        $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "io.github.lainsce.DotMatrix")
 
     if [[ "${varInstallBraveBrowser^^}" == "Y" ]]; then
         sudo ln -fvs /var/lib/flatpak/exports/bin/com.brave.Browser /usr/bin/brave

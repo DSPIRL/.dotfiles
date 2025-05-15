@@ -25,6 +25,7 @@ tooltip {
 
 #clock,
 #custom-pacman,
+#custom-hyprsunset,
 #custom-notification,
 #bluetooth,
 #network,
@@ -39,6 +40,7 @@ tooltip {
 
 #clock:hover,
 #custom-pacman:hover,
+#custom-hyprsunset:hover,
 #custom-notification:hover,
 #bluetooth:hover,
 #network:hover,
@@ -52,11 +54,17 @@ tooltip {
     text-shadow: #DDDDDD 1px 0 5px;
 }
 
+#custom-colorpicker:hover {
+    transition: all .3s ease;
+    text-shadow: #DDDDDD 1px 0 5px;
+}
+
 #custom-notification {
     padding-right: 10px;
     padding-left: 0px;
     transition: all .3s ease;
 }
+
 
 #clock{
     padding: 0px 5px;
@@ -67,7 +75,6 @@ tooltip {
 #custom-pacman {
     padding: 0px 5px;
     transition: all .3s ease;
-
 }
 
 #workspaces {
@@ -175,7 +182,7 @@ tooltip {
     padding: 0px 5px;
 }
 
-#cpu,#memory,#temperature {
+#cpu,#memory,#temperature,#custom-hyprsunset {
     padding: 0px 5px;
     transition: all .3s ease; 
 }
