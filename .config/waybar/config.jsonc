@@ -42,7 +42,7 @@
         "escape": true
     },
     "clock": {
-        "format": "{:%I:%M%p} ",
+        "format": "{:%H:%M} ",
         "interval": 1,
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
@@ -63,7 +63,7 @@
         "tooltip-format-disconnected": "Error",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
         "tooltip-format-ethernet": "{ifname} 🖧 ",
-        "on-click": "ghostty -e nmtui"
+        "on-click": "$USER_TERMINAL -e nmtui"
     },
     "pulseaudio": {
         "format": "{icon}{volume}%",
@@ -114,7 +114,7 @@
         "interval": 30,
         "exec": "checkupdates | wc -l",
         "exec-if": "exit 0",
-        "on-click": "ghostty -e sh -c 'paru -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+        "on-click": "$USER_TERMINAL -e sh -c 'paru -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
         "signal": 8,
         "tooltip": false
     },
@@ -165,7 +165,7 @@
         "format": " {usage:>2}%",
         "tooltip": true,
         "interval": 2,
-        "on-click": "ghostty -e btop -p 2"
+        "on-click": "$USER_TERMINAL -e btop -p 2"
     },
     "memory": {
         "format": " {percentage}%",

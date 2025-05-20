@@ -13,7 +13,7 @@ option_as_alt = "Both"
 normal = { family = "JetBrainsMono Nerd Font", style = "Medium" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
-size = 10.5
+size = 14
 
 [mouse]
 hide_when_typing = true
