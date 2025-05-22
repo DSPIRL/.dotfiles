@@ -1,12 +1,13 @@
+:set autoindent
+:set mouse=a
 :set number relativenumber
 :set scrolloff=999
-:set smartindent
-:set autoindent
-:set smarttab
-:set tabstop=4
-:set softtabstop=4
 :set shiftwidth=4
-:set mouse=a
+:set smartcase
+:set smartindent
+:set smarttab
+:set softtabstop=4
+:set tabstop=4
 :set wrap
 " MACOS and WINDOWS
 " :set clipboard=unnamed
