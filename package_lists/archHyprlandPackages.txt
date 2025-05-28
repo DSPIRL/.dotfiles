@@ -18,3 +18,5 @@ swaync
 swww
 waybar
 wofi
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
