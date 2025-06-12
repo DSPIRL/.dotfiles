@@ -1,10 +1,15 @@
 ##### CORE #####
 alias core-ls = ls
 alias core-cd = cd
+alias core-vim = vim
 
 ##### CUSTOM REDEFINITIONS #####
 def ls [] {
     core-ls -la | select name type mode user group size modified
+}
+
+def vim [] {
+    nvim
 }
 
 alias cd = z

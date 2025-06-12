@@ -27,6 +27,7 @@ alias exifkeepicc="exiftool -all= --icc_profile:all"
 
 ##### EDITOR #####
 alias nv="nvim"
+alias vim="nvim"
 
 ##### OVERRIDES ######
 alias grep="grep --color=auto"

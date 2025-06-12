@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-read -rp 'Press shortcut' varAppId
-$USER_TERMINAL -e bash -c "$*; tput setaf 5 bold; read -p 'Press any key to exit.' -s -n 1"
+export USER_TERMINAL=alacritty
+
+$USER_TERMINAL -e bash -c "tput setaf 5 bold; read -rp 'Press shortcut: ' -s -n1 varShortcut"
