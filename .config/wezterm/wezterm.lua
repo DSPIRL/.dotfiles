@@ -39,11 +39,11 @@ if operatingSystem == "Darwin" then
 	config.enable_tab_bar = false
 	config.font_size = 13
 else
-	config.enable_wayland = true
+	config.enable_wayland = false
 	config.window_decorations = "TITLE | RESIZE"
 	config.window_background_opacity = 0.8
 	config.enable_tab_bar = false
-	config.font_size = 11
+	config.font_size = 16
 end
 
 config.hide_mouse_cursor_when_typing = true

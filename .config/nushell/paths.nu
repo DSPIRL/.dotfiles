@@ -2,6 +2,7 @@ if ((sys host | get name | str contains --ignore-case "Linux")) {
 ##### LINUX #####
     # EDITOR #
     $env.VISUAL = "/usr/bin/nvim"
+
     # C# PATH #
     if ("~/.dotnet" | path exists) {
         $env.DOTNET_ROOT = "/usr/local/share/dotnet"
@@ -9,6 +10,9 @@ if ((sys host | get name | str contains --ignore-case "Linux")) {
             "PATH": ($env.PATH | append $env.DOTNET_ROOT | append $"($env.HOME)/.dotnet/tools")
         }
     }
+
+    # XDG #
+    $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 } else if ((sys host | get name | str contains --ignore-case "Darwin")) {
 ##### MACOS #####
     $env.VISUAL = "/opt/homebrew/bin/nvim"

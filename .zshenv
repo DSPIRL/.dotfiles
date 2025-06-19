@@ -1,5 +1,6 @@
 ##### RUST #####
 if [[ $(ls -lAFh $HOME | grep ".cargo") ]]; then
+    export XDG_CONFIG_HOME="${HOME}/.config"
     . "$HOME/.cargo/env"
 fi
 

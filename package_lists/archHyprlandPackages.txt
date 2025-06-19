@@ -4,6 +4,7 @@ bluez-utils
 brightnessctl
 cliphist
 ddcutil
+dolphin
 gddccontrol
 gnome-keyring
 grim
@@ -17,11 +18,15 @@ materia-gtk-theme
 nwg-displays
 nwg-look
 pavucontrol
+polkit-kde-agent
+qt5-wayland
+qt6-wayland
+qt6ct
 slurp
 swaync
 swww
+uwsm
 waybar
 wofi
-qt6ct
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
