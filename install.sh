@@ -92,7 +92,25 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     fi
 
     if [[ "${varRunStow^^}" == "Y" ]]; then
-        rm -rf ~/.config/alacritty ~/.config/ghostty ~/.config/hypr ~/.config/kanata ~/.config/nushell ~/.config/nvim ~/.config/starship.toml ~/.config/tmux ~/.config/wezterm ~/.ideavimrc ~/.profile ~/.vimrc ~/.zshenv ~/.zshrc ~/.tmux
+        rm -rf ~/.config/alacritty \
+            ~/.config/ghostty \
+            ~/.config/hypr \
+            ~/.config/kanata \
+            ~/.config/nushell \
+            ~/.config/nvim \
+            ~/.config/starship.toml \
+            ~/.config/tmux \
+            ~/.config/wezterm \
+            ~/.ideavimrc \
+            ~/.profile \
+            ~/.vimrc \
+            ~/.zshenv \
+            ~/.zshrc \
+            ~/.tmux \
+            ~/.bashrc \
+            ~/.bash_profile \
+            ~/.bash_history \
+            ~/.bash_logout
         stow .
     fi
 
@@ -111,8 +129,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         $([[ "${varInstallEasyEffects^^}" == "Y" ]] && echo "com.github.wwmm.easyeffects") \
         $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "it.mijorus.smile") \
         $([[ "${varInstallGimp}" == "Y" ]] && echo "org.gimp.GIMP") \
-        $([[ "${varInstallCryptomator}" == "Y" ]] && echo "org.cryptomator.Cryptomator") \
-        $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "io.github.lainsce.DotMatrix")
+        $([[ "${varInstallCryptomator}" == "Y" ]] && echo "org.cryptomator.Cryptomator")
 
     if [[ "${varInstallBraveBrowser^^}" == "Y" ]]; then
         sudo ln -fvs /var/lib/flatpak/exports/bin/com.brave.Browser /usr/bin/brave
