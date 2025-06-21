@@ -1,6 +1,8 @@
 adapta-gtk-theme
 blueman
+bluez
 bluez-utils
+breeze-gtk
 brightnessctl
 cliphist
 ddcutil
@@ -27,6 +29,7 @@ swaync
 swww
 uwsm
 waybar
+waypaper
 wofi
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland

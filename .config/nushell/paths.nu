@@ -13,6 +13,8 @@ if ((sys host | get name | str contains --ignore-case "Linux")) {
 
     # XDG #
     $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
+
+    $env.XDG_DATA_DIRS = $"/home/athe/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 } else if ((sys host | get name | str contains --ignore-case "Darwin")) {
 ##### MACOS #####
     $env.VISUAL = "/opt/homebrew/bin/nvim"

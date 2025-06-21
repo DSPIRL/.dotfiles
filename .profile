@@ -4,6 +4,8 @@
 if [[ $(uname -s) = "Linux" ]]; then
     export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
     export USER_TERMINAL=alacritty
+    export XDG_DATA_DIRS
+    XDG_DATA_DIRS="${new_dirs:+${new_dirs}:}${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
 fi
 
 if [[ $(uname -s) = "Darwin" ]]; then
