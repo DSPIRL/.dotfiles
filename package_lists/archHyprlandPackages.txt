@@ -15,6 +15,7 @@ hyprland
 hyprlock
 hyprpicker
 hyprpolkitagent
+hyprshot
 hyprsunset
 materia-gtk-theme
 nwg-displays
@@ -24,6 +25,7 @@ polkit-kde-agent
 qt5-wayland
 qt6-wayland
 qt6ct
+rofi
 slurp
 swaync
 swww
