@@ -8,3 +8,9 @@ configuration {
 @theme "themes/rounded-nord-dark.rasi"
 // @theme "themes/material.rasi"
 
+// PYWAL //
+/* Dark theme. */
+// @import "~/.cache/wal/colors-rofi-dark"
+//
+// /* Light theme. */
+// @import "~/.cache/wal/colors-rofi-light"
