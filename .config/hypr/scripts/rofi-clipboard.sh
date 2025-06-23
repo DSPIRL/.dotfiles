@@ -3,5 +3,5 @@
 if pgrep -x "rofi" >/dev/null; then
     pkill -x "rofi"
 else
-    cliphist list | rofi -dmenu | cliphist decode | wl-copy
+    rofi -modi clipboard:cliphist-rofi-img -show clipboard -show-icons
 fi
