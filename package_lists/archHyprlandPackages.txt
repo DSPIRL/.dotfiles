@@ -22,7 +22,6 @@ nwg-displays
 nwg-look
 pavucontrol
 polkit-kde-agent
-python-pywal16
 qt5-wayland
 qt6-wayland
 qt6ct
