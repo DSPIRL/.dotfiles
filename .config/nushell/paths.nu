@@ -14,7 +14,7 @@ if ((sys host | get name | str contains --ignore-case "Linux")) {
     # XDG #
     $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 
-    $env.XDG_DATA_DIRS = $"/home/athe/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+    $env.XDG_DATA_DIRS = $"($env.HOME)/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 } else if ((sys host | get name | str contains --ignore-case "Darwin")) {
 ##### MACOS #####
     $env.VISUAL = "/opt/homebrew/bin/nvim"
@@ -34,6 +34,6 @@ $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
 if ("~/.cargo" | path exists) {
     $env.CARGO_HOME = $"($env.HOME)/.cargo"
     load-env {
-        "PATH": ($env.PATH | prepend $env.CARGO_HOME)
+        "PATH": ($env.PATH | prepend $"($env.CARGO_HOME)/bin")
     }
 }

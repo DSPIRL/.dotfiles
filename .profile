@@ -1,4 +1,3 @@
-. "$HOME/.cargo/env"
 
 # Added by Toolbox App
 if [[ $(uname -s) = "Linux" ]]; then
