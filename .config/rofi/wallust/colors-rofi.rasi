@@ -1,0 +1,19 @@
+* {
+    selected-text:	#3F3C3D;
+    selected-background: #DDCED4;
+
+    prompt-text: #3F3C3D;
+    prompt-background: transparent;
+
+    normal-text: #E8F6FD;
+    normal-background: transparent;
+
+    window-border: #DDCED4;
+    window-background: #BDE4F80D;
+
+    scrollbar-filled: #DDCED4;
+    scrollbar-empty: #3F3C3D;
+
+    error-message: #D6E9F3;
+    error-message-border: #D6E9F3;
+}

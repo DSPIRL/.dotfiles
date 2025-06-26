@@ -45,7 +45,7 @@
 #
 # ==================================
 # ===USER CONFIG===
-theme = carbonfox
+theme = wallust.conf
 font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 quit-after-last-window-closed = true
@@ -62,7 +62,7 @@ cursor-style = block
 cursor-click-to-move = true
 
 # === WINDOWS & TABS ===
-background-opacity = .55
+background-opacity = 0.4
 background-blur = true
 unfocused-split-opacity = 0.7
 

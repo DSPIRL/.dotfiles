@@ -1,13 +1,19 @@
-backend = "fastresize"
-color_space = "lch"
+# backend = "full"
+# color_space = "lch"
+# palette = "dark"
+
+backend = "full"
+color_space = "labmixed"
 palette = "dark"
 
+threshold = 15
+
 [templates]
-rofi.template = 'colors-rofi.rasi'
-rofi.target = '~/.config/rofi/shared/colors.rasi'
-waybar.template = 'colors-waybar.css'
-waybar.target = '~/.config/waybar/colors-wallust.css'
-hypr.template = 'colors-hypr.conf'
-hypr.target = '~/.config/hypr/themes/wallust.conf'
-ghostty.template = 'colors-ghostty.conf'
-ghostty.target = '~/.config/ghostty/themes/wallust.conf'
+
+
+
+cava = {template = 'colors-cava', target = '~/.config/cava/config'}
+ghostty = {template = 'colors-ghostty.conf', target = '~/.config/ghostty/themes/wallust.conf'}
+hypr = {template = 'colors-hypr.conf', target = '~/.config/hypr/themes/wallust.conf'}
+rofi = {template = 'colors-rofi.rasi', target = '~/.config/rofi/wallust/colors-rofi.rasi'}
+waybar = {template = 'colors-waybar.css', target = '~/.config/waybar/wallust/colors-wallust.css'}

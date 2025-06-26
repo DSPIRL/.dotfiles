@@ -6,9 +6,14 @@
 // @import "~/.cache/wal/colors-rofi-light"
 
 /* Dark theme. */
-@import "~/.cache/wal/colors-rofi-dark"
+// @import "~/.cache/wal/colors-rofi-dark"
 //
 // END PYWAL //
+
+
+// WALLUST //
+@import "./wallust/colors-rofi.rasi"
+// END WALLUST //
 
 
 // ORIGINAL
@@ -23,8 +28,8 @@
 //     fg3:    #4C566A;
 // }
 
-@import "templates/rounded-template-pywal.rasi"
+@import "templates/rounded-template-wallust.rasi"
 
 element selected {
-    text-color: @background-color;
+    text-color: @selected-text;
 }
