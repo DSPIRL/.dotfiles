@@ -9,9 +9,6 @@ palette = "dark"
 threshold = 15
 
 [templates]
-
-
-
 cava = {template = 'colors-cava', target = '~/.config/cava/config'}
 ghostty = {template = 'colors-ghostty.conf', target = '~/.config/ghostty/themes/wallust.conf'}
 hypr = {template = 'colors-hypr.conf', target = '~/.config/hypr/themes/wallust.conf'}
