@@ -17,3 +17,4 @@ source ~/.cache/carapace/init.nu
 
 source ~/.config/nushell/alias.nu
 
+source ~/.config/nushell/login.nu
