@@ -32,30 +32,34 @@ mainbox {
 
 inputbar {
     background-color:   @prompt-background;
-    border-color:       @window-background;
+    border-color:       @window-border;
 
     border:         2px;
     border-radius:  16px;
 
-    padding:    8px 16px;
     spacing:    8px;
-    children:   [ prompt, entry ];
+    children:   [ entry ];
 }
 
 prompt {
     text-color: @normal-text;
+    border:         2px;
+    border-radius:  16px;
 }
 
 entry {
-    placeholder:        "";
-    placeholder-color:  @prompt-text;
+	expand: true;
+    placeholder: " 💻️ Apps";
+    placeholder-color: @scrollbar-filled;
+	horizontal-align: 0.5;
+	padding: 15px;
 }
 
 message {
     margin:             12px 0 0;
     border-radius:      16px;
     border-color:       @error-message-border;
-    background-color:   @error-message-border;
+    background-color:   @normal-background;
 }
 
 textbox {
@@ -74,6 +78,7 @@ listview {
 
 element {
     padding:        8px 16px;
+    margin: 4px;
     spacing:        8px;
     border-radius:  16px;
 }
@@ -83,11 +88,13 @@ element normal active {
 }
 
 element alternate active {
-    text-color: @prompt-background;
+    text-color: @normal-background;
 }
 
 element selected normal, element selected active {
-    background-color:   @selected-background;
+    // background-color:   @selected-background;
+    border: 2px;
+    border-color: @selected-background;
     // text-color: @selected-text;
 }
 
@@ -98,6 +105,7 @@ element-icon {
 
 element-text {
     text-color: @normal-text;
+    background-color: @normal-background;
 }
 
 selected {

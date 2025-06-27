@@ -28,8 +28,8 @@ rofi_theme="$HOME/.config/rofi/config-search.rasi"
 # Kill Rofi if already running before execution
 if pgrep -x "rofi" >/dev/null; then
     pkill rofi
+else
+    # Open Rofi and pass the selected query to xdg-open for Google search
+    # echo "" | rofi -dmenu -config "$rofi_theme" -mesg "$msg" | xargs -I{} xdg-open $searchEngine
+    echo "" | rofi -dmenu -config "$rofi_theme" | xargs -I{} xdg-open $searchEngine
 fi
-
-# Open Rofi and pass the selected query to xdg-open for Google search
-# echo "" | rofi -dmenu -config "$rofi_theme" -mesg "$msg" | xargs -I{} xdg-open $searchEngine
-echo "" | rofi -dmenu -config "$rofi_theme" | xargs -I{} xdg-open $searchEngine

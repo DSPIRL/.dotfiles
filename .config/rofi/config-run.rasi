@@ -7,5 +7,5 @@ mainbox {
 
 /* ---- Entry ---- */
 entry {
-  placeholder: " 📋 Clipboard ";
+  placeholder: "    Shell";
 }
