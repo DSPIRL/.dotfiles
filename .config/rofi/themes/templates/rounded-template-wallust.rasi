@@ -17,10 +17,9 @@ window {
     location:       north;
     y-offset:       calc(35% - 176px);
     width:          600;
-    border-radius:  24px;
+    border-radius:  28px;
 
     border:         2px;
-    border-radius:  16px;
 
     background-color:   @normal-background;
     border-color: @window-border;
@@ -35,7 +34,7 @@ inputbar {
     border-color:       @window-border;
 
     border:         2px;
-    border-radius:  16px;
+    border-radius:  28px;
 
     spacing:    8px;
     children:   [ entry ];
@@ -44,7 +43,7 @@ inputbar {
 prompt {
     text-color: @normal-text;
     border:         2px;
-    border-radius:  16px;
+    border-radius:  28px;
 }
 
 entry {
@@ -57,7 +56,7 @@ entry {
 
 message {
     margin:             12px 0 0;
-    border-radius:      16px;
+    border-radius:      28px;
     border-color:       @error-message-border;
     background-color:   @normal-background;
 }
@@ -80,7 +79,7 @@ element {
     padding:        8px 16px;
     margin: 4px;
     spacing:        8px;
-    border-radius:  16px;
+    border-radius:  28px;
 }
 
 element normal active {
