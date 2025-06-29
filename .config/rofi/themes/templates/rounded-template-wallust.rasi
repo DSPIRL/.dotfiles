@@ -30,7 +30,8 @@ mainbox {
 }
 
 inputbar {
-    background-color:   @prompt-background;
+    // background-color:   @prompt-background;
+    background-color:   #1B1D2B55;
     border-color:       @window-border;
 
     border:         2px;
@@ -50,6 +51,7 @@ entry {
 	expand: true;
     placeholder: " 💻️ Apps";
     placeholder-color: @scrollbar-filled;
+    background-color:   #1B1D2B55;
 	horizontal-align: 0.5;
 	padding: 15px;
 }
@@ -66,7 +68,7 @@ textbox {
 }
 
 listview {
-    background-color:   transparent;
+    background-color: @normal-background;
 
     margin:     12px 0 0;
     lines:      8;
@@ -80,6 +82,7 @@ element {
     margin: 4px;
     spacing:        8px;
     border-radius:  28px;
+    background-color:   #1B1D2B33;
 }
 
 element normal active {
@@ -91,7 +94,7 @@ element alternate active {
 }
 
 element selected normal, element selected active {
-    // background-color:   @selected-background;
+    background-color:   #1B1D2B55;
     border: 2px;
     border-color: @selected-background;
     // text-color: @selected-text;
