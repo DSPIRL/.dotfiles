@@ -128,30 +128,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     /usr/bin/zoxide init nushell >~/.zoxide.nu
 
-    rm -rf ~/.config/alacritty \
-        ~/.config/ghostty \
-        ~/.config/hypr \
-        ~/.config/kanata \
-        ~/.config/nushell \
-        ~/.config/nvim \
-        ~/.config/starship.toml \
-        ~/.config/tmux \
-        ~/.config/wezterm \
-        ~/.ideavimrc \
-        ~/.profile \
-        ~/.vimrc \
-        ~/.zshenv \
-        ~/.zshrc \
-        ~/.tmux \
-        ~/.bashrc \
-        ~/.bash_profile \
-        ~/.bash_history \
-        ~/.bash_logout
-
     cd $HOME
-
-    stow .
-
     if [[ "${varInstallTmux^^}" == "Y" ]]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
@@ -161,4 +138,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     if [[ "${varArchVM^^}" == "Y" ]]; then
         echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
     fi
+
+    bash $HOME/.dotfiles/stow.sh
 fi
