@@ -92,9 +92,9 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     cd $HOME
 
-    yes | paru -S carapace-bin
+    paru -S carapace-bin
 
-    yes | flatpak install flathub $([[ "${varInstallBraveBrowser^^}" == "Y" ]] && echo "com.brave.Browser") \
+    flatpak install flathub $([[ "${varInstallBraveBrowser^^}" == "Y" ]] && echo "com.brave.Browser") \
         $([[ "${varInstallVaria^^}" == "Y" ]] && echo "io.github.giantpinkrobots.varia") \
         $([[ "${varInstallEasyEffects^^}" == "Y" ]] && echo "com.github.wwmm.easyeffects") \
         $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "it.mijorus.smile") \
