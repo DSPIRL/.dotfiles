@@ -4,10 +4,12 @@ bluez
 bluez-utils
 breeze-gtk
 brightnessctl
+cava
 cliphist
 ddcutil
 dolphin
 gddccontrol
+gnome-calendar
 gnome-keyring
 grim
 hypridle
@@ -15,9 +17,9 @@ hyprland
 hyprlock
 hyprpicker
 hyprpolkitagent
-hyprshot
 hyprsunset
 materia-gtk-theme
+ncspot
 nwg-displays
 nwg-look
 pavucontrol
@@ -30,6 +32,7 @@ slurp
 swaync
 swww
 uwsm
+wallust
 waybar
 waypaper
 wofi

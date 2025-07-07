@@ -32,14 +32,14 @@ gradient_color_8 = '#cc3333'
 
 gradient = 1
 gradient_count = 8
-gradient_color_1 = '#424149'
-gradient_color_2 = '#407DAA'
-gradient_color_3 = '#2089D4'
-gradient_color_4 = '#33E4F1'
-gradient_color_5 = '#89EFF2'
-gradient_color_6 = '#2089D4'
-gradient_color_7 = '#33E4F1'
-gradient_color_8 = '#89EFF2'
+gradient_color_1 = '#3C4040'
+gradient_color_2 = '#093C65'
+gradient_color_3 = '#194F46'
+gradient_color_4 = '#639ACA'
+gradient_color_5 = '#A7CDE6'
+gradient_color_6 = '#4685B6'
+gradient_color_7 = '#639ACA'
+gradient_color_8 = '#A7CDE6'
 
 [smoothing]
 monstercat = 1

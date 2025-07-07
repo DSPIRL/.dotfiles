@@ -3,6 +3,7 @@ aspell
 aspell-en
 btop
 eza
+fastfetch
 flatpak
 fzf
 ghostty
@@ -22,9 +23,9 @@ stow
 tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
-ttf-noto-nerd
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
+ttf-noto-nerd
 unzip
 wl-clipboard
 zoxide

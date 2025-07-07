@@ -11,7 +11,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install and setup Hyprland? (Y/N): ' varInstallHyprland
     read -rp 'Do you want to install DevTooling? (Y/N): ' varInstallDevtools
     read -rp 'Would you like to install kanata for custom keyboard layouts? (Y/N): ' varInstallKanata
-    read -rp 'Run stow automatically? WARNING: This will overwrite conflicting dotfiles already on your machine. (Y/N): ' varRunStow
+    read -rp 'Run stow automatically (recommended)? WARNING: This will overwrite conflicting dotfiles already on your machine. (Y/N): ' varRunStow
     if [[ "${chassis}" == "laptop" ]]; then
         read -rp 'Do you want to install TLP for power management? (Y/N): ' varInstallTLP
     fi
@@ -50,7 +50,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
 
-    sudo pacman -S curl git
+    sudo pacman -S curl
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
