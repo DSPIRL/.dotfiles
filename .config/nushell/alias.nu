@@ -8,10 +8,6 @@ def ls [] {
     core-ls -la | select name type mode user group size modified
 }
 
-def vim [] {
-    nvim
-}
-
 alias cd = z
 
 
@@ -41,6 +37,7 @@ alias l = eza -lhAF --color=auto --icons=always
 alias exifall = exiftool -all=
 alias exifkeepicc = exiftool -all= --icc_profile:all
 
+alias vim = nvim
 alias nv = nvim
 alias n = nvim
 alias se = sudoedit
