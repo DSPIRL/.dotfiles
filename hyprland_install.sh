@@ -46,26 +46,29 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     sleep 5
 
     echo '
-    ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗     
-    ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║     
-    ██║██╔██╗ ██║███████╗   ██║   ███████║██║     ██║     
-    ██║██║╚██╗██║╚════██║   ██║   ██╔══██║██║     ██║     
-    ██║██║ ╚████║███████║   ██║   ██║  ██║███████╗███████╗
-    ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝
+
+    /$$$$$$                       /$$               /$$ /$$
+    |_  $$_/                      | $$              | $$| $$
+    | $$   /$$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$ | $$| $$
+    | $$  | $$__  $$ /$$_____/|_  $$_/   |____  $$| $$| $$
+    | $$  | $$  \ $$|  $$$$$$   | $$      /$$$$$$$| $$| $$
+    | $$  | $$  | $$ \____  $$  | $$ /$$ /$$__  $$| $$| $$
+    /$$$$$$| $$  | $$ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$| $$
+    |______/|__/  |__/|_______/    \___/   \_______/|__/|__/
     '
     sleep 2
 
-    sudo pacman -S curl
+    yes | sudo pacman -S curl
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
     cd $HOME
-    sudo pacman -S --needed base-devel
+    yes | sudo pacman -S --needed base-devel
     git clone https://aur.archlinux.org/paru.git
     cd paru
     makepkg -si
 
-    paru -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
+    yes | paru -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
         $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archHyprlandPackages.txt) \
         $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) \
         $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) \
@@ -89,9 +92,9 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     cd $HOME
 
-    paru -S carapace-bin
+    yes | paru -S carapace-bin
 
-    flatpak install flathub $([[ "${varInstallBraveBrowser^^}" == "Y" ]] && echo "com.brave.Browser") \
+    yes | flatpak install flathub $([[ "${varInstallBraveBrowser^^}" == "Y" ]] && echo "com.brave.Browser") \
         $([[ "${varInstallVaria^^}" == "Y" ]] && echo "io.github.giantpinkrobots.varia") \
         $([[ "${varInstallEasyEffects^^}" == "Y" ]] && echo "com.github.wwmm.easyeffects") \
         $([[ "${varInstallHyprland^^}" == "Y" ]] && echo "it.mijorus.smile") \
