@@ -87,33 +87,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         rm -rf ~/.config/nvim/.git
     fi
 
-    rm -rf ~/.config/alacritty \
-        ~/.config/ghostty \
-        ~/.config/hypr \
-        ~/.config/kanata \
-        ~/.config/nushell \
-        ~/.config/nvim \
-        ~/.config/starship.toml \
-        ~/.config/tmux \
-        ~/.config/wezterm \
-        ~/.ideavimrc \
-        ~/.profile \
-        ~/.vimrc \
-        ~/.zshenv \
-        ~/.zshrc \
-        ~/.tmux \
-        ~/.bashrc \
-        ~/.bash_profile \
-        ~/.bash_history \
-        ~/.bash_logout
-
-    cd $HOME
-    stow .
-
-    if [[ "${varInstallTmux^^}" == "Y" ]]; then
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    fi
-
     cd $HOME
 
     paru -S carapace-bin
@@ -151,6 +124,34 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     sudo ln -fvs ~/.dotfiles/assets/breeze_cursors /usr/share/icons/
 
     /usr/bin/zoxide init nushell >~/.zoxide.nu
+
+    rm -rf ~/.config/alacritty \
+        ~/.config/ghostty \
+        ~/.config/hypr \
+        ~/.config/kanata \
+        ~/.config/nushell \
+        ~/.config/nvim \
+        ~/.config/starship.toml \
+        ~/.config/tmux \
+        ~/.config/wezterm \
+        ~/.ideavimrc \
+        ~/.profile \
+        ~/.vimrc \
+        ~/.zshenv \
+        ~/.zshrc \
+        ~/.tmux \
+        ~/.bashrc \
+        ~/.bash_profile \
+        ~/.bash_history \
+        ~/.bash_logout
+
+    cd $HOME
+
+    stow .
+
+    if [[ "${varInstallTmux^^}" == "Y" ]]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
 
     chsh -s /usr/bin/zsh
 
