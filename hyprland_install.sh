@@ -68,7 +68,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     cd paru
     makepkg -si
 
-    yes | paru -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
+    paru -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
         $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archHyprlandPackages.txt) \
         $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) \
         $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) \
