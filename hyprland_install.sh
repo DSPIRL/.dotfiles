@@ -29,6 +29,7 @@ if [[ "$operatingSystem" == "Arch Linux" ]]; then
     read -rp 'Do you want to install Brave Browser? (Y/N): ' varInstallBraveBrowser
     read -rp 'Do you want to install LazyVim? (Y/N): ' varInstallLazyVim
     read -rp 'Do you want to install and setup Syncthing? (Y/N): ' varInstallSyncthing
+    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
     # read -rp 'Do you want to install Varia Download Manager? (Y/N): ' varInstallVaria
     # read -rp 'Do you want to install Easy Effects for Audio Manipulation? (Y/N): ' varInstallEasyEffects
     # read -rp 'Do you want to install Deluge bit-torrent manager? (Y/N): ' varInstallDeluge
@@ -43,8 +44,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 "
     sleep 5
-
-    read -rp 'Do you want to install TMUX? (Y/N): ' varInstallTmux
 
     echo '
     ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗     
@@ -75,11 +74,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) \
         $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") \
         $([[ ${chassis} == "laptop" && ${varInstallTLP^^} == "Y" ]] && echo "tlp")
-
-    if [[ "${varInstallSyncthing^^}" == "Y" ]]; then
-        systemctl --user enable syncthing.service
-        systemctl --user start syncthing.service
-    fi
 
     # ohmyzsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -145,6 +139,11 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     if [[ "${varInstallKanata^^}" == "Y" ]]; then
         $HOME/.cargo/bin/cargo install kanata
+    fi
+
+    if [[ "${varInstallSyncthing^^}" == "Y" ]]; then
+        systemctl --user enable syncthing.service
+        systemctl --user start syncthing.service
     fi
 
     ##### END USER CHOICES #####
