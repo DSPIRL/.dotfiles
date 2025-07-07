@@ -17,6 +17,7 @@ hyprland
 hyprlock
 hyprpicker
 hyprpolkitagent
+hyprshot
 hyprsunset
 materia-gtk-theme
 ncspot
