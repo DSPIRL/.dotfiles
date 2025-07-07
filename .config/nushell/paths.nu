@@ -29,6 +29,7 @@ $env.MANPAGER = "nvim +Man!"
 
 # PATH + VARS #
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/scripts")
 
 # RUST PATH #
 if ("~/.cargo" | path exists) {

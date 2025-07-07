@@ -3,7 +3,6 @@ dotnet-sdk
 github-cli
 go
 jujutsu
-lazygit
 nodejs
 npm
 pypy

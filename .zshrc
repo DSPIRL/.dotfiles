@@ -13,6 +13,7 @@ if [[ "$hostOS" == "$macOS" ]]; then
 
     ##### PATH #####
     export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/scripts:$PATH"
     export PATH="$HOME/development/flutter/bin:$PATH"
     export PATH="$HOME/fvm/default/bin:$PATH"
     export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
