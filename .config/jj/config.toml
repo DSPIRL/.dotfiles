@@ -4,14 +4,14 @@ defualt-command = "log"
 
 [user]
 # email = "{some email}"
-name = "Raphi"
+# name = "{some name}"
 
 [init]
 defaultBranch = "main"
 
 [core]
 autocrlf = "input"
-editor = "/opt/homebrew/bin/nvim"
+# editor = "{some editor path}"
 
 [diff]
 tool = "nvimdiff"
@@ -20,9 +20,9 @@ tool = "nvimdiff"
 prompt = false
 
 [signing]
-behavior = "own"
-backend = "gpg"
+# behavior = "own"
+# backend = "gpg"
 # key = "{some key}"
 
 [git]
-sign-on-push = true
+# sign-on-push = true
