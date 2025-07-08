@@ -69,14 +69,15 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     makepkg -si
 
     paru -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archPackages.txt) \
-        $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archHyprlandPackages.txt) \
-        $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt) \
         $([[ "${varInstallSyncthing^^}" == "Y" ]] && echo syncthing) \
         $([[ ${varInstallTmux^^} == "Y" ]] && echo tmux) \
         $([[ ${varInstallWireguard^^} == "Y" ]] && echo wireguard-tools) \
         $([[ ${varArchVM^^} == "Y" ]] && awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archVMPackages.txt) \
         $([[ ${varInstallDeluge^^} == "Y" ]] && echo "deluge deluge-gtk") \
         $([[ ${chassis} == "laptop" && ${varInstallTLP^^} == "Y" ]] && echo "tlp")
+
+    paru -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archHyprlandPackages.txt)
+    paru -S $(awk -v RS= '{$1=$1}1' ~/.dotfiles/package_lists/archDevPackages.txt)
 
     # ohmyzsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -129,6 +130,7 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
     /usr/bin/zoxide init nushell >~/.zoxide.nu
 
     cd $HOME
+
     if [[ "${varInstallTmux^^}" == "Y" ]]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
@@ -139,5 +141,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
         echo "Please review \"archVirtualizationInstruction.md\" to complete setup."
     fi
 
+    cd $HOME/.dotfiles
     bash $HOME/.dotfiles/stow.sh
 fi
