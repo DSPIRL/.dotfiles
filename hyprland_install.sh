@@ -3,6 +3,16 @@
 operatingSystem=$(grep -i "PRETTY_NAME" </etc/os-release | awk -F'"' '{print $2}')
 chassis=$(hostnamectl chassis)
 
+#===
+sudo echo "Sudo access granted for this script."
+while true; do
+    sudo -v
+    sleep 60
+done &
+# Store the PID of the background process
+SUDO_KEEPALIVE_PID=$!
+#===
+
 if [[ "$operatingSystem" == "Arch Linux" ]]; then
     ##### USER CHOICES #####
 
@@ -143,4 +153,6 @@ WHEN YOU GET TO THE OH-MY-ZSH INSTALL AND IT ASKS IF YOU WANT TO SET ZSH AS THE 
 
     cd $HOME/.dotfiles
     bash $HOME/.dotfiles/stow.sh
+
+    kill $SUDO_KEEPALIVE_PID
 fi
