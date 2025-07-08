@@ -2,13 +2,6 @@
 .idea
 .git
 history.txt
-/alacritty/colors.toml
-/cava/config
-/ghostty/themes/wallust.conf
-/hypr/monitors.conf
-/hypr/themes/wallust.conf
-/rofi/wallust/colors-rofi.rasi
-/waybar/wallust/colors-wallust.css
 
 **/plugins
 
