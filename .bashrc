@@ -15,3 +15,6 @@ eval "$(starship init bash)"
 ##### COMPLETERS #####
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 source <(carapace _carapace)
+
+##### EMACS #####
+[[ -d ~/.config/emacs/bin ]] && export PATH="$HOME/.config/emacs/bin:$PATH"
