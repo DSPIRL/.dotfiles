@@ -10,6 +10,7 @@
 
 \assets$
 \.git$
+\.jj$
 \.gitignore$
 \.idea$
 \.stow-local-ignore$

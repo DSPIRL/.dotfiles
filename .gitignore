@@ -1,9 +1,10 @@
 .DS_Store
 .idea
 .git
+.jj
 history.txt
 
-**/plugins
+**/.tmux/plugins
 
 **/.config/nvim/LICENSE
 **/.config/nvim/README.md
