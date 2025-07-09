@@ -57,6 +57,9 @@ elif [[ "$hostOS" == "$linux" ]]; then
 
     ##### PATH #####
     export PATH="$HOME/.local/bin:$PATH"
+    ##### EMACS #####
+    [[ -d ~/.config/emacs/bin ]] && export PATH="$HOME/.config/emacs/bin:$PATH"
+
 
     ##### DOTNET #####
     if [[ $(ls -lAFh | grep ".dotnet") ]]; then

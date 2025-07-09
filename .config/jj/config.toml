@@ -1,9 +1,11 @@
 [ui]
 paginate = "never"
-defualt-command = "log"
+default-command = "log"
 
 [user]
+email = "jj.proofing240@passmail.com"
 # email = "{some email}"
+name = "DSPIRL"
 # name = "{some name}"
 
 [init]
@@ -11,6 +13,7 @@ defaultBranch = "main"
 
 [core]
 autocrlf = "input"
+editor = "/usr/bin/nvim"
 # editor = "{some editor path}"
 
 [diff]

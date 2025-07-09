@@ -11,6 +11,11 @@ if ((sys host | get name | str contains --ignore-case "Linux")) {
         }
     }
 
+    # EMACS #
+    if ("~/.config/emacs/bin" | path exists) {
+        $env.PATH = ($env.PATH | prepend $"($env.HOME)/.config/emacs/bin")
+    }
+
     # XDG #
     $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 
